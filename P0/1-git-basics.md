@@ -7,7 +7,7 @@
 >
 > Git was created by Linus Torvalds in 2005, originally to help manage the development of the Linux kernel. Before Git existed, many open source projects relied on centralized version control systems or proprietary tools. When the Linux kernel community lost free access to BitKeeper, Torvalds decided to build a new system that was fast, simple, fully distributed, and capable of handling very large projects with many parallel branches.
 > 
-> Traditional document workflows often rely on saving copies such as “report_v1.doc”, “report_v2.doc”, or sharing files through email and cloud drives. This works for small projects, but it quickly becomes messy when many people edit the same files. Git is different because it tracks changes at the file level, keeps a clean history of every commit, and makes it easy to merge work from multiple people without losing context.
+> Traditional document workflows often rely on saving copies such as “report_v1.doc”, “report_v2.doc”, or sharing files through email and cloud drives. This works for small projects, but it quickly becomes messy when many people edit the same files. Git is different because it thinks of its data as a series of snapshots of a miniature filesystem rather than a list of file-based changes, keeps a clean history of every commit, and makes it easy to merge work from multiple people without losing context.
 > 
 > Git is distributed, which means every developer can have a complete copy of the repository on their own machine. This includes the full project history, all branches, and all commits. Because most operations run locally, developers can commit code, create branches, and review history even without an internet connection.
 >
@@ -18,7 +18,7 @@
 >
 > Git 由 Linus Torvalds 于 2005 年创建，最初是为了帮助管理 Linux 内核的开发。在 Git 出现之前，许多开源项目依赖集中式版本控制系统或专有工具。当 Linux 内核社区失去 BitKeeper 的免费使用权后，Torvalds 决定构建一个新的系统，要求它速度快、设计简单、完全分布式，并且能够高效管理拥有大量并行分支的大型项目。
 >
-> 传统文档工作流通常依赖保存多个副本，例如“报告_v1.doc”“报告_v2.doc”，或通过邮件、网盘分享文件。这种方式在小项目里还能工作，但当多人同时编辑同一批文件时，很快就会变得混乱。Git 的不同之处在于，它在文件级别追踪变更，保留每次提交的完整历史，并让多人协作合并变得更加清晰、可追溯。
+> 传统文档工作流通常依赖保存多个副本，例如“报告_v1.doc”“报告_v2.doc”，或通过邮件、网盘分享文件。这种方式在小项目里还能工作，但当多人同时编辑同一批文件时，很快就会变得混乱。Git 的不同之处在于，它存的是一系列迷你文件系统的快照，而不是只追踪文件级的变更，保留每次提交的完整历史，并让多人协作合并变得更加清晰、可追溯。
 >
 > Git 是分布式的，这意味着每位开发者都可以在自己的机器上拥有仓库的完整副本。这个副本包含完整的项目历史、所有分支和所有提交记录。由于大多数操作都在本地运行，开发者即使没有网络连接，也可以提交代码、创建分支和查看历史记录。
 >

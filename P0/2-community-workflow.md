@@ -12,7 +12,7 @@
 > git checkout -b fix/login-error
 > ```
 >
-> One branch should do exactly one thing. While developing, you commit in small steps instead of saving one giant batch at the end. Before opening a PR, you sync the latest upstream changes to reduce conflicts: run `git fetch upstream` and then `git merge upstream/main`. When your work is ready, push the branch to your fork with `git push origin fix/login-error` and open a **Pull Request** from your fork's branch into the original repository's target branch.
+> One branch should do exactly one thing. Before you start working, always sync first: run `git fetch upstream` and then `git merge upstream/main`, so your new branch begins from the latest upstream state. While developing, you commit in small steps instead of saving one giant batch at the end. Sync once more with the same two commands before opening a PR to reduce conflicts. When your work is ready, push the branch to your fork with `git push origin fix/login-error` and open a **Pull Request** from your fork's branch into the original repository's target branch.
 >
 > After the reviewer leaves comments, keep pushing new commits to the same branch to address them; do not force-push to a shared branch. Once the PR is merged, the temporary branch on both your local machine and your fork can be cleaned up.
 >
@@ -28,10 +28,12 @@
 > git clone <你的fork地址>
 > cd <项目名>
 > git remote add upstream <原仓库地址>
+> git fetch upstream
+> git merge upstream/main
 > git checkout -b fix/login-error
 > ```
 >
-> 一个分支只做一件事。开发过程中要小步提交，而不是最后攒成一大坨。在发起 PR 之前，先同步上游最新改动以减少冲突：运行 `git fetch upstream`，然后运行 `git merge upstream/main`。当工作完成后，用 `git push origin fix/login-error` 把分支推送到你的 fork，并从你 fork 的分支向原仓库的目标分支发起 **Pull Request**。
+> 一个分支只做一件事。动手开发之前必须先同步：运行 `git fetch upstream`，再运行 `git merge upstream/main`，让你的新分支从上游最新状态开始。开发过程中要小步提交，而不是最后攒成一大坨。发起 PR 之前再用同样这两条命令同步一次，以减少冲突。当工作完成后，用 `git push origin fix/login-error` 把分支推送到你的 fork，并从你 fork 的分支向原仓库的目标分支发起 **Pull Request**。
 >
 > 审查者留下评论后，继续在同一个分支上推送新的提交来回应意见；不要对共享分支执行强制推送。PR 合并之后，本地和你 fork 上的临时分支都可以清理掉。
 >
