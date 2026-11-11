@@ -72,7 +72,6 @@ git fetch upstream && git merge upstream/main   # 每次动手前
 | Go | P2 | CSP 并发、打包服务、跨语言契约的落地端 | 深做 |
 | TypeScript | P3 | discriminated union / reducer、面向非开发者的界面 | 深做 |
 | schema（protobuf / CUE）+ Rego | P2 / P4 | 声明式规格与可判定策略，会读会写 | 会读会写 |
-| Dart | — | 声明式 UI 谱系，v2 已删 | 不教 |
 | Elm / OCaml / Dafny / Datalog / Lean / Verus | — | 视野索引，只列名、不设阶段、不验收 | 不教 |
 
 ---
