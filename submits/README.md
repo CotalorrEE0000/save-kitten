@@ -102,3 +102,67 @@
 > # 或者明文存到磁盘上（方便，仅建议在个人电脑上用）
 > git config --global credential.helper store
 > ```
+
+
+
+
+## Troubleshooting: When `.gitignore` Does Not Work
+
+> **What happened.** In an earlier submission, an editor folder (`.idea/`) ended up inside a merge request even though `.gitignore` already had a line for it. The file looked fine on your machine, but the repository web page rendered it as garbled text. The root `.gitignore` has since been rewritten as clean plain text, with the hidden bytes stripped out, so there is nothing for you to repair. What matters is **how these files are edited**: do not open plain-text or config files in an IDE. Use **Notepad**, or append one line from Git Bash / WSL:
+>
+> ```bash
+> echo ".idea/" >> .gitignore
+> ```
+>
+> `>>` appends a single line, and the shell writes plain bytes — no BOM, no hidden characters. An IDE is exactly what caused the problem above: it may silently change the encoding, the line endings, or add a BOM. The line above shows the correct way to write such a rule; it is not a file to add to this merge request — your PR always contains only your own submission file.
+>
+> **Why a rule that looks correct can still fail.** Git matches ignore rules exactly. A text file saved as **UTF-8 with a BOM** carries an invisible `\ufeff` at the very beginning; left-over Windows CRLF line endings or other invisible characters do the same. Git then reads the rule as `[hidden bytes].idea/` instead of `.idea/`, so it matches nothing. Those same bytes are why the web page shows gibberish. There is a second cause with exactly the same symptom, already stated in Lesson 2 §4: **`.gitignore` only affects files that are not yet tracked**. If a folder was committed once, adding a line will not remove it — it has to be untracked first. `.gitignore` is also case-sensitive. In all of these cases the symptom is identical: *the line is there, but the folder still shows up*.
+>
+> **What you should do.** Before every commit, open **Changes** in GitHub Desktop (Lesson 2 §5) or run the command below, and tick only your own file:
+>
+> ```bash
+> git status
+> ```
+>
+> Write and edit plain-text files with **Notepad or `echo >>`**, never with an IDE, and **never copy configuration text out of a web page** — the invisible characters travel with the paste. Notepad and the terminal do not create `.idea/` or `.vscode/`; an IDE does, which is why switching from VS Code to IntelliJ IDEA brought the folder back every time — deleting it once is not a fix. If something you did not write still appears in `Changes`, **do not commit it** — copy that one line from `git status` and include it when you ask for help.
+>
+> ```text
+> === BEFORE YOU OPEN A PR — three lines to tick =================
+>
+> [ ] Changes / git status shows ONLY my own submission file
+> [ ] No .idea/  .vscode/  caches  *.swp  or any folder I did not write
+> [ ] I wrote plain-text files with Notepad or echo >> (never an IDE), and did not paste from a web page
+>
+> If any line fails: do not commit, include the git status line when
+> you ask for help.
+> ================================================================
+> ```
+
+> **出了什么事。** 之前有一次提交，`.gitignore` 里明明写了 `.idea/`，结果编辑器文件夹还是被交进了合并请求；文件在自己电脑上看着正常，仓库网页上却显示成乱码。根目录的 `.gitignore` 已用纯文本重新覆写过一遍，隐藏字符已剥掉，不需要你再修。真正要改的是**编辑方式**：**纯文本文件和配置文件不要用 IDE 打开编辑。用记事本，或者在 Git Bash / WSL 里用 `echo >>` 追加一行：**
+>
+> ```bash
+> echo ".idea/" >> .gitignore
+> ```
+>
+> `>>` 是追加一行，终端写出的是纯字节，不带 BOM、不带隐藏字符；IDE 恰恰是上面那个问题的来源——它可能悄悄改掉编码、换行符，或加上 BOM。上面那行示范的是正确写法，不是让你把根目录文件交进这次合并请求——PR 里始终只放你自己那一个提交文件。
+>
+> **为什么一行看着对的规则会失效。** Git 匹配忽略规则是逐字严格比对的。文件若存成了**带 BOM 的 UTF-8**，开头会多一个看不见的 `\ufeff`；残留的 Windows CRLF 换行符或其他不可见字符也一样。于是 Git 读到的规则变成 `[隐藏字节].idea/`，而不是 `.idea/`，自然谁都匹配不上；网页显示乱码，也是这批字节造成的。还有一个**症状完全相同**的原因，第 2 讲第 4 节已经写过：**`.gitignore` 只对尚未被跟踪的文件生效**。某个文件夹一旦被提交过，光加一行是删不掉它的，得先取消跟踪；另外 `.gitignore` 区分大小写。这几种情况的共同表现都是同一句话：**「那行在，可文件夹还在」**。
+>
+> **你该怎么做。** 每次提交前，用 GitHub Desktop 的 **Changes** 页（第 2 讲第 5 节）或下面这条命令看一眼，只勾自己那个文件：
+>
+> ```bash
+> git status
+> ```
+>
+> 纯文本文件一律用**记事本或 `echo >>`** 写和改，**不要用 IDE**；也**不要从网页上复制配置内容再粘贴进本地文件**——看不见的字符会跟着一起过来。记事本和终端不会生成 `.idea/`、`.vscode/`，IDE 才会；所以从 VS Code 换成 IntelliJ IDEA 时那个文件夹每次都回来，删一次没有用。如果 `Changes` 里还是冒出你没写过的东西，**不要提交**，把 `git status` 里那一行原样附在提问里。
+>
+> ```text
+> === 每次发 PR 前 —— 勾这三条 ===================================
+>
+> [ ] Changes / git status 里只有我自己的那一个提交文件
+> [ ] 没有 .idea/  .vscode/  缓存  *.swp  或任何我没写过的目录
+> [ ] 我的纯文本文件是用记事本或 echo >> 写的，没用 IDE，也没从网页复制粘贴
+>
+> 任何一条没过：不要提交，把 git status 那一行原样附在提问里。
+> ================================================================
+> ```
