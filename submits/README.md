@@ -108,16 +108,20 @@
 
 ## Troubleshooting: When `.gitignore` Does Not Work
 
-> **What happened.** In an earlier submission, an editor folder (`.idea/`) ended up inside a merge request even though `.gitignore` already had a line for it. The file looked fine on your machine, but the repository web page rendered it as garbled text. The root `.gitignore` has since been rewritten as clean plain text, with the hidden bytes stripped out, so there is nothing for you to repair. What matters is **how these files are edited**: do not open plain-text or config files in an IDE. Use **Notepad**, or append one line from Git Bash / WSL:
+> **What happened.** In an earlier submission, an editor folder (`.idea/`) ended up inside a merge request even though `.gitignore` already had a line for it. The file looked fine on your machine, but the repository web page rendered it as garbled text. The broken file was 18 bytes and began with `377 376` (octal) — that is `FF FE`, the BOM of **UTF-16LE**, not UTF-8. The root `.gitignore` has since been rewritten as clean plain text. It now holds one line, `.idea/`: a former second line `/.idea/misc.xml` was dropped by the rewrite, which is harmless because `.idea/` already covers it, and `.vscode/` was **never** in this file. So when you check the file, write down the lines you actually see — do not copy tick marks from any example. What matters is **how these files are edited**: do not open plain-text or config files in an IDE. Use **Notepad**, or append one line from Git Bash / WSL:
 >
 > ```bash
 > echo ".idea/" >> .gitignore
 > ```
 >
-> `>>` appends a single line, and the shell writes plain bytes — no BOM, no hidden characters. An IDE is exactly what caused the problem above: it may silently change the encoding, the line endings, or add a BOM. The line above shows the correct way to write such a rule; it is not a file to add to this merge request — your PR always contains only your own submission file.
+> `>>` appends a single line, and the shell writes plain UTF-8 bytes — no BOM, no hidden characters. An IDE is exactly what caused the problem above: it may save the file in a different encoding. The line above shows the correct way to write such a rule; it is not a file to add to this merge request — your PR always contains only your own submission file.
 >
-> **Why a rule that looks correct can still fail.** Git matches ignore rules exactly. A text file saved as **UTF-8 with a BOM** carries an invisible `\ufeff` at the very beginning; left-over Windows CRLF line endings or other invisible characters do the same. Git then reads the rule as `[hidden bytes].idea/` instead of `.idea/`, so it matches nothing. Those same bytes are why the web page shows gibberish. There is a second cause with exactly the same symptom, already stated in Lesson 2 §4: **`.gitignore` only affects files that are not yet tracked**. If a folder was committed once, adding a line will not remove it — it has to be untracked first. `.gitignore` is also case-sensitive. In all of these cases the symptom is identical: *the line is there, but the folder still shows up*.
+> **Why a rule that looks correct can still fail.** Git matches ignore rules **byte by byte**. In UTF-16 every ASCII character is followed by a `\0` byte, so the line Git read was not `.idea/` but `.i\0d\0e\0a\0/\0`. That matches nothing. The same encoding is why the web page rendered the file as gibberish.
 >
+> Two suspects were ruled out by running `git check-ignore` on four versions of the same rule: UTF-16LE returns 1 (no match), plain LF returns 0, CRLF returns 0, and UTF-8 with a BOM returns 0 on the Git version tested (2.55). Only the UTF-16 version fails. **CRLF and a UTF-8 BOM do not break an ignore rule.** To check a file yourself: `od -An -tx1 .gitignore` shows the leading bytes (`ff fe` is the giveaway), and `git check-ignore -v .idea/` tells you whether the rule matches. Both are optional here.
+>
+> Two other causes have the same symptom, already stated in Lesson 2 §4: **`.gitignore` only affects files that are not yet tracked**. If a folder was committed once, adding a line will not remove it — it has to be untracked first. `.gitignore` is also case-sensitive. In all of these cases: *the line is there, but the folder still shows up*.
+
 > **What you should do.** Before every commit, open **Changes** in GitHub Desktop (Lesson 2 §5) or run the command below, and tick only your own file:
 >
 > ```bash
@@ -138,15 +142,19 @@
 > ================================================================
 > ```
 
-> **出了什么事。** 之前有一次提交，`.gitignore` 里明明写了 `.idea/`，结果编辑器文件夹还是被交进了合并请求；文件在自己电脑上看着正常，仓库网页上却显示成乱码。根目录的 `.gitignore` 已用纯文本重新覆写过一遍，隐藏字符已剥掉，不需要你再修。真正要改的是**编辑方式**：**纯文本文件和配置文件不要用 IDE 打开编辑。用记事本，或者在 Git Bash / WSL 里用 `echo >>` 追加一行：**
+> **出了什么事。** 之前有一次提交，`.gitignore` 里明明写了 `.idea/`，结果编辑器文件夹还是被交进了合并请求；文件在自己电脑上看着正常，仓库网页上却显示成乱码。那份坏文件一共 18 字节，开头是八进制 `377 376`，也就是 `FF FE`——**UTF-16LE 的 BOM**，不是 UTF-8。根目录的 `.gitignore` 已用纯文本重新覆写过，现在里面只有一行 `.idea/`：覆写把原来第二行 `/.idea/misc.xml` 冲掉了，不过 `.idea/` 本来就覆盖它，不痛；而 `.vscode/` **从来没在这个文件里出现过**。所以核对时请把你**实际看到的行**写下来，不要照抄任何示例里的对勾。真正要改的是**编辑方式**：**纯文本文件和配置文件不要用 IDE 打开编辑。用记事本，或者在 Git Bash / WSL 里用 `echo >>` 追加一行：**
 >
 > ```bash
 > echo ".idea/" >> .gitignore
 > ```
 >
-> `>>` 是追加一行，终端写出的是纯字节，不带 BOM、不带隐藏字符；IDE 恰恰是上面那个问题的来源——它可能悄悄改掉编码、换行符，或加上 BOM。上面那行示范的是正确写法，不是让你把根目录文件交进这次合并请求——PR 里始终只放你自己那一个提交文件。
+> `>>` 是追加一行，终端写出的是 UTF-8 纯字节，不带 BOM、不带隐藏字符；IDE 恰恰是上面那个问题的来源——它可能把文件存成另一种编码。上面那行示范的是正确写法，不是让你把根目录文件交进这次合并请求——PR 里始终只放你自己那一个提交文件。
 >
-> **为什么一行看着对的规则会失效。** Git 匹配忽略规则是逐字严格比对的。文件若存成了**带 BOM 的 UTF-8**，开头会多一个看不见的 `\ufeff`；残留的 Windows CRLF 换行符或其他不可见字符也一样。于是 Git 读到的规则变成 `[隐藏字节].idea/`，而不是 `.idea/`，自然谁都匹配不上；网页显示乱码，也是这批字节造成的。还有一个**症状完全相同**的原因，第 2 讲第 4 节已经写过：**`.gitignore` 只对尚未被跟踪的文件生效**。某个文件夹一旦被提交过，光加一行是删不掉它的，得先取消跟踪；另外 `.gitignore` 区分大小写。这几种情况的共同表现都是同一句话：**「那行在，可文件夹还在」**。
+> **为什么一行看着对的规则会失效。** Git 匹配忽略规则是**按字节逐字**比对的。UTF-16 里每个 ASCII 字符后面都跟着一个 `\0` 字节，所以 Git 读到的那一行不是 `.idea/`，而是 `.i\0d\0e\0a\0/\0`，一条也匹配不上；网页显示乱码，也是同一种编码造成的。
+>
+> 另有两个嫌疑可以排除：把同一条规则写成四种版本，逐个跑 `git check-ignore`——UTF-16LE 返回 1（不匹配），纯 LF 返回 0，CRLF 返回 0，带 UTF-8 BOM 的版本在实跑的 Git 2.55 下同样返回 0。只有 UTF-16 版失败。**CRLF 和 UTF-8 BOM 都不会让忽略规则失效。** 想自己复核：`od -An -tx1 .gitignore` 看开头字节（出现 `ff fe` 就是它），`git check-ignore -v .idea/` 看规则是否命中；这两条在这里是可选的。
+>
+> 另外两个症状相同的原因，第 2 讲第 4 节已经写过：**`.gitignore` 只对尚未被跟踪的文件生效**。某个文件夹一旦被提交过，光加一行是删不掉它的，得先取消跟踪；另外 `.gitignore` 区分大小写。这几种情况的共同表现都是同一句话：**「那行在，可文件夹还在」**。
 >
 > **你该怎么做。** 每次提交前，用 GitHub Desktop 的 **Changes** 页（第 2 讲第 5 节）或下面这条命令看一眼，只勾自己那个文件：
 >

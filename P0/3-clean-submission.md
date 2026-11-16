@@ -6,7 +6,7 @@
 >
 > Before you start, make sure you recognise four things. A folder holds files. A path tells you where a file is. A name beginning with a dot is a hidden file or folder — it is still there even if you cannot see it. And your editor quietly creates its own folders inside your project, such as `.idea/` or `.vscode/`, without asking you. You did not write those files, but Git notices them.
 >
-> Lesson 1 said this: `git add <file>` stages one file, while `git add .` stages **every change in the current directory**. Lesson 2 showed a `.gitignore` containing `.idea/` and `.vscode/`. In the last practice run, an editor folder ended up inside a merge request. Those two earlier sentences are the whole fix. Nothing new needs to be learned — only used.
+> Lesson 1 said this: `git add <file>` stages one file, while `git add .` stages **every change in the current directory**. Lesson 2 explained what `.gitignore` does and named editor folders such as `.idea/` and `.vscode/`. In the last practice run, an editor folder ended up inside a merge request. Those two earlier sentences are the whole fix. Nothing new needs to be learned — only used.
 >
 > If something on your screen looks wrong, the first question is never "did I break Git". It is "what did the computer put here that I did not write".
 
@@ -14,25 +14,25 @@
 >
 > 开工前先认得四件事：文件夹里装文件；路径说明文件在哪；点号开头的名字是隐藏文件或隐藏文件夹，看不见不等于不存在；还有，编辑器会悄悄在项目里建自己的文件夹，例如 `.idea/`、`.vscode/`，不会问你。这些不是你写的文件，但 Git 会看见它们。
 >
-> 第一讲说过：`git add <文件>` 只暂存一个文件，`git add .` 会暂存**当前目录下全部改动**。第二讲给过一张 `.gitignore`，里面就有 `.idea/`、`.vscode/`。上一次练习里，有人的合并请求里带进了一个编辑器自动生成的文件夹。把前面这两句话真正用一次，就是这一讲全部的内容——不用学新东西，只用把学过的用上。
+> 第一讲说过：`git add <文件>` 只暂存一个文件，`git add .` 会暂存**当前目录下全部改动**。第二讲讲过 `.gitignore` 的作用，也提到 `.idea/`、`.vscode/` 这类编辑器文件夹。上一次练习里，有人的合并请求里带进了一个编辑器自动生成的文件夹。把前面这两句话真正用一次，就是这一讲全部的内容——不用学新东西，只用把学过的用上。
 >
 > 屏幕上出现看不懂的东西时，先别问「我是不是把 Git 弄坏了」，先问「电脑在这里放了什么我没写过的东西」。
 
-> **The setup I recommend / 我推荐的组合**: For this course, use **GitHub Desktop** from Lesson 2 §5 to look at your changes, and **any plain text editor** to write the file. I personally pair GitHub Desktop with `nvim`, but that is my own habit, not a requirement — `nvim` is not friendly to beginners, and this lesson neither teaches nor asks for it. Whichever tool you use, open **Changes** in GitHub Desktop (or run `git status`) and look at what is ticked. That ticked list is exactly what you are about to hand in; the two views show the same thing.
+> **The setup I recommend / 我推荐的组合**: For this course, use **GitHub Desktop** from Lesson 2 §5 to look at your changes, and **Notepad** (or `echo >>` in Git Bash / WSL) to write the file. Do not write these files in an IDE: it creates `.idea/` / `.vscode/` folders and can save the file in the wrong encoding (see the Troubleshooting section of `submits/README.md`). I personally pair GitHub Desktop with `nvim`, but that is my own habit, not a requirement — `nvim` is not friendly to beginners, and this lesson neither teaches nor asks for it. Whichever tool you write with, open **Changes** in GitHub Desktop (or run `git status`) and look at what is ticked. That ticked list is exactly what you are about to hand in; the two views show the same thing.
 >
 > Editor shortcuts and the like do not belong in the lessons. Later in the course an `ultra/` folder will hold this kind of optional reading — look it up whenever you like, nothing here depends on it.
 
-> **推荐组合**：本讲用第 2 讲第 5 节装好的 **GitHub Desktop** 看改动，用**任意纯文本编辑器**写文件。我自己日常是 GitHub Desktop 配 `nvim`，但那只是我的个人习惯，不是本课要求——`nvim` 对新手并不友好，本讲不教、也不要求用它。不管用什么工具，都要在 GitHub Desktop 的 **Changes** 页（或跑一次 `git status`）看一眼被勾上了哪些文件；被勾上的那几行就是你要交出去的东西，两个界面看的是同一件事。
+> **推荐组合**：本讲用第 2 讲第 5 节装好的 **GitHub Desktop** 看改动，用**记事本**（或 Git Bash / WSL 里的 `echo >>`）写文件。**不要用 IDE 写这些文件**：它会生成 `.idea/`、`.vscode/`，还可能把文件存成错误的编码（见 `submits/README.md` 的排查一节）。我自己日常是 GitHub Desktop 配 `nvim`，但那只是我的个人习惯，不是本课要求——`nvim` 对新手并不友好，本讲不教、也不要求用它。不管用什么工具写，都要在 GitHub Desktop 的 **Changes** 页（或跑一次 `git status`）看一眼被勾上了哪些文件；被勾上的那几行就是你要交出去的东西，两个界面看的是同一件事。
 >
 > 编辑器快捷键这类东西不进讲义。课程后段会有一个 `ultra/` 文件夹统一放这种可选读物，想看随时看，本讲不依赖它。
 
-> **How to read and write a `.md` file / md 文件怎么读怎么写**: `.md` means Markdown. It is a **plain text file**, not a Word document — no fonts, no bold button, no hidden formatting. Any text editor can open it. Lesson 1 already used `cat <file>`; it prints the file exactly as it is stored, so it is the simplest way to check your work. A line starting with `# ` is a title; every other line is just a sentence. That is the only syntax this assignment needs. Do not paste from Word.
+> **How to read and write a `.md` file / md 文件怎么读怎么写**: `.md` means Markdown. It is a **plain text file**, not a Word document — no fonts, no bold button, no hidden formatting. Notepad or the terminal can open it. Lesson 1 already used `cat <file>`; it prints the file exactly as it is stored, so it is the simplest way to check your work. A line starting with `# ` is a title; every other line is just a sentence. That is the only syntax this assignment needs. Do not paste from Word.
 >
-> Open the file in your editor, type the text, save it, then run `cat <file>` again and read the lines on screen. If what you see is not what you meant, fix the file before you touch Git.
+> Open the file with Notepad, type the text, save it, then run `cat <file>` again and read the lines on screen. If what you see is not what you meant, fix the file before you touch Git.
 
-> `.md` 就是 Markdown，是**纯文本文件**，不是 Word 文档——没有字体、没有加粗按钮、没有隐藏格式，任何文本编辑器都能打开。第 1 讲已经用过 `cat <文件>`，它把文件里真正存着的内容原样打印出来，是复查最省事的办法。`# ` 开头的一行是标题，其余每行就是一句普通的话；这次作业用到的语法只有这两条。不要从 Word 里复制粘贴。
+> `.md` 就是 Markdown，是**纯文本文件**，不是 Word 文档——没有字体、没有加粗按钮、没有隐藏格式，记事本或终端都能打开。第 1 讲已经用过 `cat <文件>`，它把文件里真正存着的内容原样打印出来，是复查最省事的办法。`# ` 开头的一行是标题，其余每行就是一句普通的话；这次作业用到的语法只有这两条。不要从 Word 里复制粘贴。
 >
-> 用你的编辑器打开文件 → 打字 → 保存 → 再跑一次 `cat <文件>`，盯着屏幕确认内容真的存进去了。看到的和想写的不一样，先回去改文件，别急着碰 Git。
+> 用记事本打开文件 → 打字 → 保存 → 再跑一次 `cat <文件>`，盯着屏幕确认内容真的存进去了。看到的和想写的不一样，先回去改文件，别急着碰 Git。
 
 > **WARNING: Do not use `git add .` here**
 > It is convenient, and it is exactly how a folder you never wrote gets into a commit. Name the file you mean, one by one.
@@ -44,11 +44,11 @@
 
 ## 2. The Assignment
 
-> Submit **one file**: `submits/<handle>/CLEAN.md`. Replace `<handle>` with your own submission folder name. If the task post gives another file name, change only the name and keep every step below the same.
+> Submit **one file**: `submits/<handle>/P0/CLEAN.md`. Follow the layout in `submits/README.md`: your own folder, then a chapter folder (`P0` here), then the file — **three levels, do not skip one**. Replace `<handle>` with your own submission folder name. If the task post gives another file name, change only the name and keep every step below the same.
 >
 > The content is **not three sentences**. It is a filled-in checklist: §3 gives two complete templates, one in English and one in Chinese — copy either one into the file and replace every `[ ]` with your own answer. What is graded is the path list and the record, not the prose.
 
-> 交**一个文件**：`submits/<handle>/CLEAN.md`，把 `<handle>` 换成你自己的提交目录名。任务发布里若指定了别的名字，只换名字，下面步骤一律不变。
+> 交**一个文件**：`submits/<handle>/P0/CLEAN.md`。按 `submits/README.md` 的目录结构：自己的文件夹 → 章节文件夹（这里是 `P0`）→ 文件，**一共三层，别少一层**。把 `<handle>` 换成你自己的提交目录名。任务发布里若指定了别的名字，只换名字，下面步骤一律不变。
 >
 > 这次**不是写三句话**，而是交一张**填好的自检表**：第 3 节有两份完整模板，英文一份、中文一份，任选一份整段复制进文件，把 `[ ]` 换成自己的答案。看的是那份路径清单和记录，不是文笔。
 
@@ -61,12 +61,12 @@
 >    ```
 >
 > 2. Make a new branch. Never work on `main`.
-> 3. Write your file with a text editor, then run `git status` and **read the whole output**. Anything you did not write yourself does not belong in this submission.
-> 4. Open the repository's `.gitignore` and **check** that `.idea/` and `.vscode/` are already in it. That file was committed in the last merge, so this time you normally change nothing: do not add it again, and do not put it in this merge request. Only if a line is genuinely missing do you add that one line — and say so in the checklist.
+> 3. Write your file with Notepad (or `echo >>`), then run `git status` and **read the whole output**. Anything you did not write yourself does not belong in this submission.
+> 4. Open the repository's `.gitignore` and **read which lines it actually has** — never assume what is inside. That file was committed in the last merge, so this time you change nothing and do not put it in this merge request. Copy the lines you see into the checklist. If you think a line is missing, say so when you ask for help; do not edit the file yourself.
 > 5. Stage by name, then commit with a **conventional commit message** (see the block at the end of this section):
 >
 >    ```bash
->    git add submits/<handle>/CLEAN.md
+>    git add submits/<handle>/P0/CLEAN.md
 >    git commit -m "docs: add submission check note"
 >    ```
 >
@@ -86,11 +86,11 @@
 >
 > 1. 动手前先同步（第二讲教过）：`git fetch upstream && git merge upstream/main`
 > 2. 建新分支，绝不在 `main` 上改
-> 3. 用文本编辑器写完文件，跑一次 `git status`，**把输出整段读完**。凡不是你亲手写的，都不属于这次提交
-> 4. 打开仓库里的 `.gitignore`，**核对** `.idea/`、`.vscode/` 这几行是否已在里面。这份文件在上一次合并里已经交进仓库了，所以这次通常**什么都不用改**：不要再加一遍，也不要把它放进这次的合并请求。只有真缺了某一行，才补那一行，并在自检表里写明
+> 3. 用记事本（或 `echo >>`）写完文件，跑一次 `git status`，**把输出整段读完**。凡不是你亲手写的，都不属于这次提交
+> 4. 打开仓库里的 `.gitignore`，**看清楚它实际有哪几行**，不要凭想象填。这份文件在上一次合并里已经交进仓库了，所以这次**什么都不用改**，也不要把它放进这次的合并请求；把实际看到的行抄进自检表。觉得少了哪一行，就写在提问里，不要自己改这个文件
 > 5. 按名字暂存，然后用**规范提交信息**提交（格式见本节末尾那一整块）：
 >
->    `git add submits/<handle>/CLEAN.md`
+>    `git add submits/<handle>/P0/CLEAN.md`
 >
 >    `git commit -m "docs: add submission check note"`
 >
@@ -160,7 +160,7 @@
 === WHAT TO HAND IN ===========================================
 
 [1] The only path allowed in this merge request
-    submits/<handle>/CLEAN.md
+    submits/<handle>/P0/CLEAN.md
 
 [2] Content of CLEAN.md
     Copy everything between the two dashed lines into the file.
@@ -168,7 +168,7 @@
 # Submission Check
 
 - File I changed:
-  [submits/<handle>/CLEAN.md]
+  [submits/<handle>/P0/CLEAN.md]
 
 - What I left out:
   [.idea/, caches, editor folders, and every file except CLEAN.md]
@@ -176,8 +176,8 @@
 - Which rule made me exclude it:
   [README rule 2; .gitignore line __]
 
-- .gitignore checked:
-  [.idea/ OK   .vscode/ OK   -- unchanged this time / added line __]
+- .gitignore lines I actually saw (copy them, do not guess):
+  [line 1: ____   line 2: ____ / none   -- unchanged this time / added line __]
 
 - Commit type and why:
   [docs: because this change touches documentation only]
@@ -213,7 +213,7 @@
 === 本次要交的东西 ==========================================
 
 [1] 合并请求里只允许出现的路径（干净结果只有这一行）
-    submits/<handle>/CLEAN.md
+    submits/<handle>/P0/CLEAN.md
 
 [2] CLEAN.md 的内容
     把下面两条虚线之间整段复制进文件
@@ -221,7 +221,7 @@
 # 提交自检
 
 - 我改的文件：
-  [submits/<handle>/CLEAN.md]
+  [submits/<handle>/P0/CLEAN.md]
 
 - 我排除了什么：
   [.idea/、缓存、编辑器目录，以及 CLEAN.md 以外的任何文件]
@@ -229,8 +229,8 @@
 - 排除依据：
   [README 第 2 条；.gitignore 第 __ 行]
 
-- .gitignore 已核对：
-  [.idea/ ✓   .vscode/ ✓   —— 这次没有改它 / 补了 __ 一行]
+- .gitignore 里实际看到的行（照抄，不要凭想象填）：
+  [第 1 行：____   第 2 行：____ / 没有   —— 这次没有改它 / 补了 __ 一行]
 
 - 提交类型及理由：
   [docs: 这次只改了文档]
