@@ -1,0 +1,40 @@
+name: 校验贡献者名单
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      contributor_type:
+        type: string
+
+env:
+  ATOMGIT_OWNER: klions
+  ATOMGIT_REPO: save-kitten
+  CONTRIBUTOR_TYPE: committers
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  enable: true
+  max: 1
+  exceed-action: QUEUE
+
+permissions:
+  repository: read
+  pr: write
+
+stages:
+  verify:
+    name: 校验自动生成的贡献者区块
+    fail_fast: true
+    jobs:
+      contributors:
+        runs-on: [ubuntu-latest, x64, small]
+        steps:
+          - uses: checkout
+          - run: |
+              python3 --version
+              python3 scripts/gen_contributors.py --check
