@@ -27,8 +27,6 @@ git fetch upstream && git merge upstream/main   # before every session
 2. Change only `submits/<your handle>/`; lecture directories are read-only.
 3. Before submitting, run `git diff --name-only upstream/main...HEAD` and paste the output **verbatim** into the PR description.
 
-Full rules in [CONTRIBUTING.md](CONTRIBUTING.md). When a PR is rejected, read which path is wrong — don't guess.
-
 ---
 
 ## Five things you should be able to do

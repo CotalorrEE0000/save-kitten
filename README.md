@@ -28,8 +28,6 @@ git fetch upstream && git merge upstream/main   # 每次动手前
 2. 只改 `submits/<你的 handle>/`，讲义目录只读。
 3. 提交前跑 `git diff --name-only upstream/main...HEAD`，把输出**原样**贴进 PR 描述。
 
-完整规则见 [CONTRIBUTING.md](CONTRIBUTING.md)。被打回时看具体是哪条路径不对，不要猜。
-
 ---
 
 ## 学完应当能做到的 5 件事
