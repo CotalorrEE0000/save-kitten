@@ -6,7 +6,7 @@
 [![PRs: welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
 [![license: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 
-English · [简体中文](README.zh.md) · [Contributing](CONTRIBUTING.md)
+English · [简体中文](README.zh.md) · Contributing
 
 **A game-engine engineering course you actually submit homework to.** Lectures live in `P0/` … `P4/`; coursework goes in `submits/<handle>/`.
 The loop: `read → build → open a PR → get reviewed → turn the feedback into a principle`.

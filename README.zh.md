@@ -6,7 +6,7 @@
 [![PRs: welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
 [![license: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 
-简体中文 · [English](README.md) · [贡献指南](CONTRIBUTING.md)
+简体中文 · [English](README.md) · 贡献指南
 
 **一门可以交作业的游戏引擎工程课** — 讲义在 `P0/` … `P4/`，作业交在 `submits/<handle>/`。
 闭环：`读讲义 → 动手做 → 发 PR → 被 review → 把意见抽象成原则`。
