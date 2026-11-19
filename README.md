@@ -1,51 +1,50 @@
 # save-kitten
 
-[![stage: P0 in progress](https://img.shields.io/badge/stage-P0%20in%20progress-yellow)](#路线图)
-[![engine: Rust](https://img.shields.io/badge/engine-Rust-orange)](#t-型技能地图)
-[![lessons: P0-P4](https://img.shields.io/badge/lessons-P0--P4-blue)](#路线图)
+[![stage: P0 in progress](https://img.shields.io/badge/stage-P0%20in%20progress-yellow)](#roadmap)
+[![engine: Rust](https://img.shields.io/badge/engine-Rust-orange)](#t-shaped-skill-map)
+[![lessons: P0-P4](https://img.shields.io/badge/lessons-P0--P4-blue)](#roadmap)
 [![PRs: welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
 [![license: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 
-简体中文 · [English](README.en.md) · [贡献指南](CONTRIBUTING.md)
+English · [简体中文](README.zh.md) · [Contributing](CONTRIBUTING.md)
 
-**一门可以交作业的游戏引擎工程课** — 讲义在 `P0/` … `P4/`，作业交在 `submits/<handle>/`。
-闭环：`读讲义 → 动手做 → 发 PR → 被 review → 把意见抽象成原则`。
+**A game-engine engineering course you actually submit homework to.** Lectures live in `P0/` … `P4/`; coursework goes in `submits/<handle>/`.
+The loop: `read → build → open a PR → get reviewed → turn the feedback into a principle`.
 
 ---
 
-> **这个仓库不是产品。** 目标是能一起协作的人，不是仓库数量或下载量：五个阶段是训练载体，
-> 各自独立成仓库后都挂回已有引擎，作为逐步接手的子系统；本仓库只承载课程、作业与互动记录。
+> **This repository is not a product.** The goal is people you can collaborate with, not repo counts or downloads: the five stages are training vehicles that each become a separate repo and plug back into an existing engine as subsystems you progressively take over. This repo holds only the course, the coursework, and the review trail.
 
-## 快速开始
+## Quick start
 
 ```bash
 git clone <your-fork>
 git remote add upstream <this-repo>
-git fetch upstream && git merge upstream/main   # 每次动手前
+git fetch upstream && git merge upstream/main   # before every session
 ```
 
-1. Fork 后克隆，配置 `upstream`。
-2. 只改 `submits/<你的 handle>/`，讲义目录只读。
-3. 提交前跑 `git diff --name-only upstream/main...HEAD`，把输出**原样**贴进 PR 描述。
+1. Fork, clone, and configure `upstream`.
+2. Change only `submits/<your handle>/`; lecture directories are read-only.
+3. Before submitting, run `git diff --name-only upstream/main...HEAD` and paste the output **verbatim** into the PR description.
 
 ---
 
-## 学完应当能做到的 5 件事
+## Five things you should be able to do
 
-| 能力 | 判据 |
+| Ability | Evidence |
 |:---|:---|
-| 把约束写成机器规则 | 「必须 / 不许」是可判定、可单测、可审计的策略，不是提示词里的自觉 |
-| 不用 AI 也能讲明白 | 任一已完成的子系统，能脱稿讲清原理，并指出自己当初的一个错判 |
-| 会 review 别人 | 能给资深者提实质意见，并抽象成「下次不再犯」的原则 |
-| 交付完整链路 | 从零做到可玩 demo，说清每处规约分别由谁检查 |
-| 反向 review | 从「被评价」走到「参与制定评价标准」 |
+| Turn constraints into machine rules | "must / must not" is a decidable, testable, auditable policy — not good intentions in a prompt |
+| Explain it without AI | Walk through any finished subsystem from first principles, and name one judgement you got wrong |
+| Review others | Give a senior engineer substantive feedback and abstract it into a "never again" principle |
+| Ship the whole chain | Build a playable demo from zero and say who checks each invariant |
+| Reverse review | Move from being evaluated to co-authoring the evaluation criteria |
 
 ---
 
-## T 型技能地图
+## T-shaped skill map
 
-**横杠 = 广度**（跨语言契约与交付），**竖杠 = 深度**（往 Rust 引擎内核里扎），交点 `core` 是已有引擎。
-语言不是五份语法课，每门只承载一种「不变量由谁检查」；进度只看在坐标系里走到哪，不看学了几门语言。
+**Crossbar = breadth** (cross-language contracts and delivery), **stem = depth** (down into the Rust engine core); the `core` junction is the existing engine.
+These are not five syntax courses: each language carries exactly one "who checks the invariant". Progress is measured by where you are on the map, not by how many languages you have touched.
 
 ```text
    BREADTH ────────── cross-language contracts & delivery ─────────►
@@ -63,53 +62,53 @@ git fetch upstream && git merge upstream/main   # 每次动手前
                      └───────────────────────────┘
 ```
 
-| 语言 / 工具 | 阶段 | 承担什么 | 程度 |
+| Language / tool | Stage | What it carries | Depth |
 |:---|:---:|:---|:---:|
-| C / C++ | P0 | 机器模型、字节序、UB；规范先于实现 | 深做 |
-| Rust | P0 末–P1 | 所有权 / typestate 把不变量交给编译器；引擎主线 | 深做（竖轴） |
-| Go | P2 | CSP 并发、打包服务、跨语言契约的落地端 | 深做 |
-| TypeScript | P3 | discriminated union / reducer、面向非开发者的界面 | 深做 |
-| schema（protobuf / CUE）+ Rego | P2 / P4 | 声明式规格与可判定策略，会读会写 | 会读会写 |
-| Elm / OCaml / Dafny / Datalog / Lean / Verus | — | 视野索引，只列名、不设阶段、不验收 | 不教 |
+| C / C++ | P0 | Machine model, byte order, UB; spec before implementation | deep |
+| Rust | end of P0–P1 | Ownership / typestate push invariants into the compiler; engine mainline | deep (stem) |
+| Go | P2 | CSP concurrency, packaging service, landing end of cross-language contracts | deep |
+| TypeScript | P3 | discriminated union / reducer, UI for non-developers | deep |
+| schema (protobuf / CUE) + Rego | P2 / P4 | Declarative specs and decidable policy: read and write, not "master" | read & write |
+| Elm / OCaml / Dafny / Datalog / Lean / Verus | — | Horizon index: named only, no stage, no acceptance | not taught |
 
 ---
 
-## 路线图
+## Roadmap
 
-状态：`✓` 已完成 ｜ `○` 进行中 ｜ `—` 未开始。任务包按「半天」计，`时间 / due` 是相对月，不排到周。
+Status: `✓` done ｜ `○` in progress ｜ `—` not started. A task pack is about half a day; `time / due` is in relative months, never scheduled by week.
 
-| 阶段 | 项目 | 做什么 | 真实消费者 | 时间 / due | 状态 |
+| Stage | Project | What | Real consumer | Time / due | Status |
 |:---:|:---|:---|:---|:---:|:---:|
-| P0 | `savefmt` | 存档格式规范 + C11 参考实现 | 引擎读写端、未来的自己 | 第 1 月 | `○` |
-| P1 | `save-rs` | 引擎存档子系统的 Rust 实现（不追通用性） | 引擎本体（真实依赖） | 第 2–3 月 | `—` |
-| P2 | `engine-pack` | 契约层与工具链服务（Go） | 引擎构建链、CI | 第 3.5–5 月 | `—` |
-| P3 | `story-studio` | 引擎的剧本 / 存档编辑器（Web） | 用引擎做内容的人 | 第 5–6.5 月 | `—` |
-| P4 | `engine-sdk` | 整合模板 + agent 护栏 + 规约手册 | 想接手引擎的下一个人 | 第 6.5–8 月 | `—` |
+| P0 | `savefmt` | Save-format spec + C11 reference implementation | Engine read/write side, future you | month 1 | `○` |
+| P1 | `save-rs` | Rust implementation of the engine's save subsystem (no generality chase) | The engine itself (a real dependency) | months 2–3 | `—` |
+| P2 | `engine-pack` | Contract layer and toolchain services (Go) | Engine build chain, CI | months 3.5–5 | `—` |
+| P3 | `story-studio` | Script / save editor for the engine (Web) | People making content with the engine | months 5–6.5 | `—` |
+| P4 | `engine-sdk` | Integration template + agent guardrails + spec handbook | The next person taking over the engine | months 6.5–8 | `—` |
 
-每个任务包固定包含一次「**读引擎现有代码 → 写下假设 → 提问**」——练的是读懂别人的代码、对不懂处发问，而不是只在 P4 做一次反向 review。
+Every task pack includes one fixed exercise: **read existing engine code → write down assumptions → ask questions**. The point is reading other people's code and asking about what you don't understand, not doing a single reverse review only in P4.
 
-> 发布前五个名字统一加前缀（如 `celestforge-*`）：`story-studio`、`engine-sdk` 在 GitHub 已有同名活跃项目，`engine-sdk` 的 npm 精确名也已被占位包占用。
+> Before publishing, prefix all five names (e.g. `celestforge-*`): `story-studio` and `engine-sdk` already name active GitHub projects, and the exact npm name `engine-sdk` is taken by a placeholder package.
 
 ---
 
-### 术语速查
+### Glossary
 
-| 术语 | 一句话解释 |
+| Term | One-line explanation |
 |:---|:---|
-| PR / 合并请求 | 把改动提交给主仓库，等检查通过后合入 |
-| upstream | 本课程的「上游」主仓库，动手前先同步 |
-| UB（未定义行为） | 标准没规定结果，代码可能「随机发挥」 |
-| fuzz | 覆盖率引导的变异输入测试，逼出边界崩溃 |
-| ASan | clang 内存错误检测器；未初始化读取归 MSan |
-| conformance 向量 | 「输入 → 期望字节流」的标准答案集，所有实现照同一套考 |
-| 性质测试（Proptest） | 机器生成上千输入验证规则，不逐条手写用例 |
-| ADR | 存档「当时为什么这么选」的决策记录 |
-| Rego / 护栏 | 用策略代码而非口头承诺约束 AI 或工具 |
-| semver | 主.次.补丁；`0.y.z` 处于初始开发，接口都可能变 |
-| breaking change | 让老用户文件 / 接口失效，必须配迁移说明 |
+| PR / merge request | Submit your changes to the main repo and wait for review before merge |
+| upstream | The course's main repository; sync from it before you start |
+| UB (undefined behavior) | The standard defines no result; code may "improvise" |
+| fuzz | Coverage-guided input mutation that forces boundary crashes |
+| ASan | clang's memory error detector; uninitialized reads belong to MSan |
+| conformance vector | A fixed set of "input → expected byte stream" answers every implementation is graded against |
+| Property testing (Proptest) | Generate thousands of inputs to verify a rule instead of hand-writing cases |
+| ADR | A team decision record capturing why a choice was made at the time |
+| Rego / guardrails | Constrain AI or tools with policy code, not verbal promises |
+| semver | major.minor.patch; `0.y.z` is initial development, any interface may change |
+| breaking change | Invalidates existing user files / interfaces and requires a migration note |
 
 ---
 
-## 贡献者
+## Contributors
 
-完整名单见 [CONTRIBUTORS.md](CONTRIBUTORS.md)。
+Full list in [CONTRIBUTORS.md](CONTRIBUTORS.md).
