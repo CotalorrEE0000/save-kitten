@@ -227,8 +227,6 @@
 - Unexpected entries in git status:
   [none / list them]
 
-- Output of git diff --name-only upstream/main...HEAD (verbatim):
-  [paste it here, one line, unchanged]
 
 - One sentence for the merge request description:
   [which rule made me exclude what]
@@ -295,8 +293,6 @@
 - git status 里不是我写的条目：
   [无 / 写具体名字]
 
-- git diff --name-only upstream/main...HEAD 的输出（原样）：
-  [把输出贴在这一行，一行，不要改]
 
 - 我按哪条规矩排除了什么（贴进合并请求描述）：
   [一句话]
