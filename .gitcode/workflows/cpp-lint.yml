@@ -1,0 +1,35 @@
+name: C 风格检查
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  repository: read
+  pr: read
+
+defaults:
+  run:
+    shell: bash
+
+stages:
+  lint:
+    name: 风格检查
+    fail_fast: true
+    jobs:
+      cpp-lint:
+        name: clang-format
+        runs-on: [ubuntu-latest, x64, small]
+        steps:
+          - uses: checkout
+          - name: Check tracked C/C++ files against .clang-format
+            run: |
+              files=$(git ls-files '*.c' '*.cpp' '*.cc' '*.cxx' '*.h' '*.hpp')
+              if [ -z "$files" ]; then
+                echo "No tracked C/C++ files - nothing to check, skip."
+                exit 0
+              fi
+              apt-get update && apt-get install -y clang-format
+              clang-format --dry-run --Werror $files
