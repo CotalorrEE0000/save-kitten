@@ -9,7 +9,7 @@
 
 English · [简体中文](README.zh.md) · Contributing
 
-**A game-engine engineering course you actually submit homework to.** Lectures live in `P0/` … `P4/`; coursework goes in `submits/<handle>/`.
+**A game-engine engineering course you actually submit homework to.** Lectures live in `P0/` … `P4/`; everything else (`Algo/`, `scripts/`, `.gitcode/`) is course support material. coursework goes in `submits/<handle>/`.
 The loop: `read → build → open a PR → get reviewed → turn the feedback into a principle`.
 
 ---
