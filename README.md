@@ -5,6 +5,7 @@
 [![lessons: P0-P4](https://img.shields.io/badge/lessons-P0--P4-blue)](#roadmap)
 [![PRs: welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
 [![license: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
+![star](https://atomgit.com/klions/save-kitten/star/badge.svg)
 
 English · [简体中文](README.zh.md) · Contributing
 
@@ -19,7 +20,7 @@ The loop: `read → build → open a PR → get reviewed → turn the feedback i
 
 ```bash
 git clone <your-fork>
-git remote add upstream <this-repo>
+git remote add upstream https://atomgit.com/klions/save-kitten.git
 git fetch upstream && git merge upstream/main   # before every session
 ```
 
@@ -86,8 +87,6 @@ Status: `✓` done ｜ `○` in progress ｜ `—` not started. A task pack is a
 | P4 | `engine-sdk` | Integration template + agent guardrails + spec handbook | The next person taking over the engine | months 6.5–8 | `—` |
 
 Every task pack includes one fixed exercise: **read existing engine code → write down assumptions → ask questions**. The point is reading other people's code and asking about what you don't understand, not doing a single reverse review only in P4.
-
-> Before publishing, prefix all five names (e.g. `celestforge-*`): `story-studio` and `engine-sdk` already name active GitHub projects, and the exact npm name `engine-sdk` is taken by a placeholder package.
 
 ---
 

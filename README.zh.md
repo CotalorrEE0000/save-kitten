@@ -5,6 +5,7 @@
 [![lessons: P0-P4](https://img.shields.io/badge/lessons-P0--P4-blue)](#路线图)
 [![PRs: welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
 [![license: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
+![star](https://atomgit.com/klions/save-kitten/star/badge.svg)
 
 简体中文 · [English](README.md) · 贡献指南
 
@@ -20,7 +21,7 @@
 
 ```bash
 git clone <your-fork>
-git remote add upstream <this-repo>
+git remote add upstream https://atomgit.com/klions/save-kitten.git
 git fetch upstream && git merge upstream/main   # 每次动手前
 ```
 
@@ -87,8 +88,6 @@ git fetch upstream && git merge upstream/main   # 每次动手前
 | P4 | `engine-sdk` | 整合模板 + agent 护栏 + 规约手册 | 想接手引擎的下一个人 | 第 6.5–8 月 | `—` |
 
 每个任务包固定包含一次「**读引擎现有代码 → 写下假设 → 提问**」——练的是读懂别人的代码、对不懂处发问，而不是只在 P4 做一次反向 review。
-
-> 发布前五个名字统一加前缀（如 `celestforge-*`）：`story-studio`、`engine-sdk` 在 GitHub 已有同名活跃项目，`engine-sdk` 的 npm 精确名也已被占位包占用。
 
 ---
 
