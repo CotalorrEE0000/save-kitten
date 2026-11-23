@@ -109,7 +109,7 @@
 > q[0..3] still there: 0 1 2 3
 > ```
 >
-> The six problems in the first problem set under `algo` were each shown in Go, Rust, C and C++, so one sentence is enough here, and not having done them changes nothing below: Vector --A container that grows by itself quietly does four things for you: it works out how much larger a block it needs, allocates one, copies the old data across, and releases the old block. In C those four things are simply yours to write, and the compiler helps with exactly one of them. On this run `gcc` also printed `warning: pointer 'p' used after 'realloc' [-Wuse-after-free]` — even printing the old address after `realloc` counts as using a pointer whose block is gone. It is one of the few undefined behaviours `-Wall` does catch, and it is worth reading carefully rather than silencing.
+> The six problems in the first problem set under `algo` were each shown in Go, Rust, C and C++, so one sentence is enough here, and not having done them changes nothing below. A container that grows by itself quietly does four things for you: it works out how much larger a block it needs, allocates one, copies the old data across, and releases the old block. In C those four things are simply yours to write, and the compiler helps with exactly one of them. On this run `gcc` also printed `warning: pointer 'p' used after 'realloc' [-Wuse-after-free]` — even printing the old address after `realloc` counts as using a pointer whose block is gone. It is one of the few undefined behaviours `-Wall` does catch, and it is worth reading carefully rather than silencing.
 >
 > The clearest demonstration that undefined behaviour is about meaning rather than crashing needs two builds of one program. Read an integer from the command line and print `x + 1 > x`. With `-O2` and `x = 2147483647`, the answer is 1; add `-fwrapv` and the answer is 0. Here `-O2` selects an optimisation level, and `-fwrapv` tells the compiler to treat signed overflow as binary wraparound instead of something that cannot happen. The compiler is entitled to answer "always true" in the first build because the standard declares signed overflow undefined: it may simply assume it never occurs. If it does occur, nothing the program concludes afterwards counts. The second build is not a fixed program, it is a different agreement with the compiler. Not a compiler bug — the line of code itself has no defined meaning at that value.
 >
@@ -197,6 +197,8 @@
 >
 > After this lesson you should be able to say why `byte[0]` of `0x01020304` is `04`, tell `p` from `&p` without hesitating, explain why a program that "successfully" changes `guard` to 999 is still a bug, keep `sizeof` and `strlen` apart, say what `free` does not do, put undefined behaviour under "the standard says nothing" rather than "it might crash", and point at the exact line where a 300-byte claim is refused by a twenty-byte file.
 >
+> One more thing before you hand in. In this course a commit message is written as `submit(folder): what you did`, so that every submission can be traced to its own folder. A real open-source project uses a different rule: a lowercase English type, a colon, and a short description, as in `feat: add C11 save reader skeleton`. The types are the six listed in Lesson 3 (`docs:`, `feat:`, `fix:`, `refactor:`, `test:`, `chore:`), and CI reads the type to decide which checks to run. A message without a valid type leaves the check unable to tell whether to run. Both templates below keep one `feat:` line as a sample of that community convention; it is **not** the format for this hand-in. Write your own line in the course format, and keep the two apart: one is for submitting coursework here, the other is for working with other people on a real project.
+>
 > **Keep one sentence**: a skeleton that runs is not the same as a skeleton that can prove it never reads past the end.
 
 > 前两讲各留过一句话。一句是：交上去了，和能证明自己交对了，是两件事；另一句是：写完六句，和别人照着它算得出同一串字节，是两件事。这一讲再添第三句：骨架能跑，和骨架能证明自己不会读越界，也是两件事。
@@ -212,10 +214,12 @@
 >
 > 这一讲读完，你应该能说清 `0x01020304` 的 `byte[0]` 为什么是 `04`；能不犹豫地分清 `p` 和 `&p`；能讲明白一个「顺利」把 `guard` 改成 999 的程序为什么仍算 bug；能把 `sizeof` 和 `strlen` 区分开；能说出 `free` 不做哪件事；能把未定义行为归到「标准什么都没说」而不是「可能会崩」；也能指出 20 字节文件拒绝 300 字节声明的，究竟是哪一行。
 >
+> 交之前还有一件事要说清。本课程的提交信息写成 `submit(提交的文件夹): 做了什么事情`，这样每份作业都能按文件夹找到人。真实项目里用的是另一套写法：一个英文小写的类型，加冒号，再加一句简短说明，例如 `feat: add C11 save reader skeleton`；类型就是第三讲那六类——`docs:`、`feat:`、`fix:`、`refactor:`、`test:`、`chore:`。CI 会读这个类型决定跑哪些检查，所以类型写错，等于这条提交在检查里不存在。下面两份表单各留了一条 `feat:` 样例，那是社区写法，**不是这次要交的格式**；这次请按 `submit(提交的文件夹): 做了什么事情` 写自己的那一条。两种都要认得：一种在课堂里交作业，一种在真实项目里和别人协作。
+>
 > **最后记住一句**：骨架能跑，和骨架能证明自己不会读越界，是两件事。
 
 > **Hand-in checklist — English template / 英文模板**
-> Copy the whole block into the hand-in file. Each answer blank is a bare underline, with no square brackets: write over it and leave none behind, so the file stays easy to read when you come back to it. A commit message in this project is written as `submit(folder): what you did`; the `feat:` form from the earlier lessons is not the format here. The commit line inside the template is only a sample written in that format, not a second rule.
+> Copy the whole block into the hand-in file. Each answer blank is a bare underline, with no square brackets: write over it and leave none behind, so the file stays easy to read when you come back to it. This course uses `submit(folder): what you did`. The `feat:` line inside is a sample of the real-community convention, kept so that both are visible; it is not the format for this hand-in.
 
 ```text
 === WHAT TO HAND IN ===========================================
@@ -227,8 +231,9 @@
 2. Content of the hand-in file
     Copy everything between the two dashed lines into the file.
     The underlines are blanks; no square brackets go into the file.
-    Commit format: submit(folder): what you did (not the feat: form).
-    The commit line inside is a sample of that format, not another rule.
+    Commit format here: submit(folder): what you did.
+    The feat: line below shows the real-community convention; both are kept.
+    Write your own in the course format.
 ------------------------------------------------------------
 # C11 Skeleton Check
 
@@ -253,13 +258,13 @@
 - Output of gcc -Wall -Wextra -o d1 d1.c && ./d1 (verbatim):
   ____
 
-- Commit message format for this project (not the feat: form):
+- Commit message format for this course:
   submit(folder): what you did
 
-- Sample commit, written in that format (sample only, not the format itself):
+- Community convention, kept as a sample (not the format for this hand-in):
   feat: add C11 save reader skeleton
 
-- Commit message I used (write your own in the format above, do not copy the sample):
+- Commit message I used (write in the course format, do not copy the sample):
   ____
 
 - Unexpected entries in git status (none, or list them):
@@ -281,7 +286,7 @@
 ```
 
 > **交什么，照着填 — 中文模板**
-> 整段复制进本次要交的文件。每条横线是填空处，直接把答案写在横线上，**不要留中括号**，以后回头读更清楚。本项目的提交信息写成 `submit(提交的文件夹): 做了什么事情`，前面几讲里的 `feat:` 不是这里的格式；表里那条提交信息只是按这个格式给出的**样例**，不是另一条规矩。
+> 整段复制进本次要交的文件。每条横线是填空处，直接把答案写在横线上，**不要留中括号**，以后回头读更清楚。本课程用 `submit(提交的文件夹): 做了什么事情`；表里那条 `feat:` 是真实社区写法的样例，留着让两种都看得见，这次不要照它写。
 
 ```text
 === 本次要交的东西 ==========================================
@@ -293,8 +298,9 @@
 2. 本次文件的内容
     把下面两条虚线之间整段复制进文件
     横线是填空处，文件里不要留下中括号
-    提交信息格式：submit(提交的文件夹): 做了什么事情（不是 feat: 形式）
-    表里那条提交信息只是按格式写的样例，不是另一条规矩
+    提交信息格式：submit(提交的文件夹): 做了什么事情
+    表里那条 feat: 是真实社区写法的样例，两种都留着
+    本次按课程格式写自己的那一条
 ------------------------------------------------------------
 # C11 骨架自检
 
@@ -319,13 +325,13 @@
 - gcc -Wall -Wextra -o d1 d1.c && ./d1 的输出（原样）：
   ____
 
-- 本项目的提交信息格式（不是 feat: 形式）：
+- 本课程的提交信息格式：
   submit(提交的文件夹): 做了什么事情
 
-- 按这个格式写的一条样例提交（只是样例，不是格式本身）：
+- 真实社区里的写法，留作样例（不是这次要交的格式）：
   feat: add C11 save reader skeleton
 
-- 本次提交信息（按上面的格式写自己的，不要照抄样例）：
+- 本次提交信息（按课程格式写自己的，不要照抄样例）：
   ____
 
 - git status 里不是我写的条目（无，或写具体名字）：
