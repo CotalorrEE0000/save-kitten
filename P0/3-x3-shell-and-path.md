@@ -290,44 +290,170 @@ See you there.
 
 ---
 
-## Hand-in template (English)
+## Hand-in template
+
+**Before you hand in.** Two conventions live side by side. This course writes the commit message as `submit(folder): what you did`, so every hand-in can be found by the folder it lives in. Real projects write it the other way: a short lowercase type, a colon, a short description — `docs: add shell and PATH check` — and the type is one of the six from lesson 3. Two rules hold here too: **one merge request carries one task**, and **the description says which rule made you exclude what**. Both templates keep one `docs:` line as a sample of the community convention; it is not the format for this hand-in.
+
+> **交之前。** 两种写法并存。本课程的提交信息写成 `submit(提交的文件夹): 做了什么事情`，这样每份作业都能按文件夹找到人。真实项目里是另一套：英文小写类型、冒号、一句简短说明——`docs: add shell and PATH check`——类型从第 3 讲那六类里挑。两条规矩在这里同样成立：**一个合并请求只装一件事**，**描述里写清你按哪条规矩排除了什么**。下面两份表单各留一条 `docs:` 样例，那是社区写法，**不是这次要交的格式**。
 
 ```text
-# Shell and PATH — self check
+=== WHAT TO HAND IN ===========================================
+
+1. The only path allowed in this merge request
+    submits/<handle>/P0/SHELL.md
+
+2. Content of the hand-in file
+    Copy everything between the two dashed lines into the file.
+    The underlines are blanks; no square brackets go into the file.
+    Answer in English only, one line per blank. No Chinese, no brackets.
+    Commit format here: submit(folder): what you did — one line, English.
+    The docs: line below shows the real-community convention; both are kept.
+    Write your own in the course format.
+------------------------------------------------------------
+# Shell and PATH Check
 
 - Shell and version I actually used (pwsh / cmd / bash / zsh):
-- Where I found it (Windows Terminal tab / VS Code / other):
-- One command taken apart: program / sub-command / option / argument
+  ____
+
+- Where I opened it (Windows Terminal tab / VS Code / other):
+  ____
+
+- One command taken apart — program / sub-command / option / argument:
+  ____
+
 - The folder I created for my own tools:
+  ____
+
 - What I added to PATH, and whether it was this window or every window:
-- Output of `where.exe hello` (or `command -v hello`), verbatim:
-- My hello program: script / compiled binary / both
+  ____
+
+- Output of where.exe hello (or command -v hello), verbatim:
+  ____
+
+- My hello: script / compiled binary / both:
+  ____
+
 - Break 1 (wrong name) — error verbatim, and which layer said it:
+  ____
+
 - Break 2 (folder not on PATH) — error verbatim, and which layer said it:
+  ____
+
 - Break 3 (wrong extension) — error verbatim, and which layer said it:
+  ____
+
 - Am I elevated in this window, and how I checked:
+  ____
+
+- Commit message format for this course:
+  submit(folder): what you did
+
+- Community convention, kept as a sample (not the format for this hand-in):
+  docs: add shell and PATH check
+
+- Commit message I used (write in the course format, do not copy the sample):
+  ____
+
 - Before this page I thought ..., now I know ...:
-- Commit message (course format):
-- Entries in git status that are not mine (none, or list them):
+  ____
+
+- Unexpected entries in git status (none, or list them):
+  ____
+
+- What I excluded by which rule (paste into the merge request description):
+  ____
+------------------------------------------------------------
+
+3. Also paste into the merge request description
+    - the sentence explaining which rule made me exclude what
+
+4. NOT in this PR
+    .gitignore        <- not part of this submission; leave it alone
+    .idea/  .vscode/  caches, editor folders
+    the hello program itself (it lives on your machine, not in the repository)
+    anything outside submits/<handle>/
+============================================================
 ```
 
-## 提交模板（中文）
+> **交什么，照着填 — 中文模板**
+> 整段复制进本次要交的文件。每条横线是填空处，直接把答案写在横线上，**不要留中括号**，以后回头读更清楚。
 
 ```text
+=== 本次要交的东西 ==========================================
+
+1. 合并请求里只允许出现的路径
+    submits/<handle>/P0/SHELL.md
+
+2. 本次文件的内容
+    把下面两条虚线之间整段复制进文件
+    横线是填空处，文件里不要留下中括号
+    每条横线只写一行，不要中英混填
+    提交信息只写一行英文，类型和说明里都不要出现中文
+    提交信息格式：submit(提交的文件夹): 做了什么事情
+    表里那条 docs: 是真实社区写法的样例，两种都留着
+    本次按课程格式写自己的那一条
+------------------------------------------------------------
 # 壳层与 PATH 自检
 
 - 我实际用的壳和版本（pwsh / cmd / bash / zsh）：
+  ____
+
 - 我从哪里打开的（Windows Terminal 标签页 / VS Code / 其他）：
-- 拆开的一条命令：程序 / 子命令 / 选项 / 参数
+  ____
+
+- 拆开的一条命令——程序 / 子命令 / 选项 / 参数：
+  ____
+
 - 我给自己的工具建的目录：
+  ____
+
 - 我往 PATH 里加了什么，改的是当前窗口还是所有窗口：
-- `where.exe hello`（或 `command -v hello`）的原样输出：
-- 我的 hello：脚本 / 编译出的二进制 / 两个都有
+  ____
+
+- where.exe hello（或 command -v hello）的原样输出：
+  ____
+
+- 我的 hello：脚本 / 编译出的二进制 / 两个都有：
+  ____
+
 - 失败一（名字错）——错误原文，以及是哪一层在说：
+  ____
+
 - 失败二（目录不在 PATH）——错误原文，以及是哪一层在说：
+  ____
+
 - 失败三（扩展名不对）——错误原文，以及是哪一层在说：
+  ____
+
 - 当前窗口是否已提权，我怎么判断的：
+  ____
+
+- 本课程的提交信息格式：
+  submit(提交的文件夹): 做了什么事情
+
+- 真实社区里的写法，留作样例（不是这次要交的格式）：
+  docs: add shell and PATH check
+
+- 本次提交信息（按课程格式写自己的，不要照抄样例）：
+  ____
+
 - 这一页之前我以为……，现在我知道……：
-- 本次提交信息（课程格式）：
+  ____
+
 - git status 里不是我写的条目（无，或写具体名字）：
+  ____
+
+- 我按哪条规矩排除了什么（贴进合并请求描述）：
+  ____
+------------------------------------------------------------
+
+3. 合并请求描述里另外要贴
+    · 上面「我按哪条规矩排除了什么」那一句话
+
+4. 这次明确不交
+    .gitignore        ← 不属于本次提交，不要动它
+    .idea/  .vscode/  缓存、编辑器目录
+    hello 程序本身（它活在你机器上，不进仓库）
+    submits/<handle>/ 以外的任何文件
+============================================================
 ```

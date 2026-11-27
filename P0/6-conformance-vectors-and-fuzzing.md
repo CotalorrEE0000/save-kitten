@@ -300,7 +300,7 @@
 ```text
 === WHAT TO HAND IN ===========================================
 
-1. Paths allowed in this merge request
+1. The only paths allowed in this merge request
     submits/<handle>/P0/CONFORMANCE.md
     savefmt/  (decoder, vectors, runner, harness, seed file)
     Nothing else.
@@ -308,6 +308,10 @@
 2. Content of the hand-in file
     Copy everything between the two dashed lines into the file.
     The underlines are blanks; no square brackets go into the file.
+    Answer in English only, one line per blank. No Chinese, no brackets.
+    Commit format here: submit(folder): what you did — one line, English.
+    The feat: line below shows the real-community convention; both are kept.
+    Write your own in the course format.
 ------------------------------------------------------------
 # Conformance and Fuzz Check
 
@@ -341,10 +345,10 @@
 - Commit message format for this course:
   submit(folder): what you did
 
-- Real-community convention, kept as a sample (not the format for this hand-in):
+- Community convention, kept as a sample (not the format for this hand-in):
   feat: add conformance vectors and fuzz harness
 
-- The commit message I used (write in the course format, do not copy the sample):
+- Commit message I used (write in the course format, do not copy the sample):
   ____
 
 - Which files are code and which are evidence:
@@ -358,9 +362,9 @@
 ------------------------------------------------------------
 
 3. Also paste into the merge request description
-    · the "what I excluded by which rule" sentence
+    - the "what I excluded by which rule" sentence
 
-4. Not part of this hand-in
+4. NOT in this PR
     fuzz_buggy, crash-* artifacts, *.o, *.exe
     .idea/  .vscode/
     any file outside submits/<handle>/ and savefmt/
@@ -373,14 +377,19 @@
 ```text
 === 本次要交的东西 ==========================================
 
-1. 合并请求里允许出现的路径
+1. 合并请求里只允许出现的路径
     submits/<handle>/P0/CONFORMANCE.md
     savefmt/  （解码器、向量、runner、harness、种子文件）
     其他一律不要
 
-2. 作业文件的内容
+2. 本次文件的内容
     把下面两条虚线之间整段复制进文件
-    横线是填空处，文件里不要留中括号
+    横线是填空处，文件里不要留下中括号
+    每条横线只写一行，不要中英混填
+    提交信息只写一行英文，类型和说明里都不要出现中文
+    提交信息格式：submit(提交的文件夹): 做了什么事情
+    表里那条 feat: 是真实社区写法的样例，两种都留着
+    本次按课程格式写自己的那一条
 ------------------------------------------------------------
 # Conformance 与 Fuzz 自检
 
@@ -433,7 +442,7 @@
 3. 合并请求描述里另外要贴
     · 上面「我按哪条规矩排除了什么」那一句话
 
-4. 这次不交
+4. 这次明确不交
     fuzz_buggy、crash-* 之类 artifact、*.o、*.exe
     .idea/  .vscode/
     submits/<handle>/ 和 savefmt/ 以外的任何文件

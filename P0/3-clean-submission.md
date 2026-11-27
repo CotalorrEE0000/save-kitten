@@ -46,11 +46,11 @@
 
 > Submit **one file**: `submits/<handle>/P0/CLEAN.md`. Follow the layout in `submits/README.md`: your own folder, then a chapter folder (`P0` here), then the file — **three levels, do not skip one**. Replace `<handle>` with your own submission folder name. If the task post gives another file name, change only the name and keep every step below the same.
 >
-> The content is **not three sentences**. It is a filled-in checklist: §3 gives two complete templates, one in English and one in Chinese — copy either one into the file and replace every `[ ]` with your own answer. What is graded is the path list and the record, not the prose.
+> The content is **not three sentences**. It is a filled-in checklist: §3 gives two complete templates, one in English and one in Chinese — copy either one into the file and write your answer on every underline. What is graded is the path list and the record, not the prose.
 
 > 交**一个文件**：`submits/<handle>/P0/CLEAN.md`。按 `submits/README.md` 的目录结构：自己的文件夹 → 章节文件夹（这里是 `P0`）→ 文件，**一共三层，别少一层**。把 `<handle>` 换成你自己的提交目录名。任务发布里若指定了别的名字，只换名字，下面步骤一律不变。
 >
-> 这次**不是写三句话**，而是交一张**填好的自检表**：第 3 节有两份完整模板，英文一份、中文一份，任选一份整段复制进文件，把 `[ ]` 换成自己的答案。看的是那份路径清单和记录，不是文笔。
+> 这次**不是写三句话**，而是交一张**填好的自检表**：第 3 节有两份完整模板，英文一份、中文一份，任选一份整段复制进文件，在每条横线上写自己的答案。看的是那份路径清单和记录，不是文笔。
 
 > Work through these in order:
 >
@@ -157,106 +157,128 @@
 >
 > 这一关过了，下一讲才轮到字节、十六进制和格式规范。
 
+> **Before you hand in.** Two conventions live side by side from here on. This course writes the commit message as `submit(folder): what you did`, so every hand-in can be found by the folder it lives in. Real projects write it the other way: a short lowercase type, a colon, a short description — `docs: add submission check note` — and the type is one of the six from §2. The two rules that survive in both: **one merge request carries one task**, and **the merge request description says which rule made you exclude what**. Both templates below keep one `docs:` line as a sample of the community convention; it is not the format for this hand-in. Know both — one hands work in here, the other is how you will talk to people in a real repository.
+>
+> **交之前，先说清两条并存的写法。** 本课程的提交信息写成 `submit(提交的文件夹): 做了什么事情`，这样每份作业都能按文件夹找到人。真实项目里是另一套：一个英文小写的类型、冒号、一句简短说明——`docs: add submission check note`——类型就是 §2 那六类里挑一个。两种写法共享同两条规矩：**一个合并请求只装一件事**，**合并请求描述里写清你按哪条规矩排除了什么**。下面两份表单各留了一条 `docs:` 样例，那是社区写法，**不是这次要交的格式**。两种都要认得：一种在课堂里交作业，一种在真实仓库里跟人协作。
+
 > **Hand-in checklist — English template / 英文模板**
-> Copy the whole block into `CLEAN.md` and replace every `[ ]`.
+> Copy the whole block into the hand-in file. Each answer blank is a bare underline, with no square brackets: write over it and leave none behind, so the file stays easy to read when you come back to it.
 
 ```text
 === WHAT TO HAND IN ===========================================
 
-[1] The only path allowed in this merge request
+1. The only path allowed in this merge request
     submits/<handle>/P0/CLEAN.md
 
-[2] Content of CLEAN.md
+2. Content of the hand-in file
     Copy everything between the two dashed lines into the file.
+    The underlines are blanks; no square brackets go into the file.
+    Answer in English only, one line per blank. No Chinese, no brackets.
+    Commit format here: submit(folder): what you did — one line, English.
+    The docs: line below shows the real-community convention; both are kept.
+    Write your own in the course format.
 ------------------------------------------------------------
 # Submission Check
 
 - File I changed:
-  [submits/<handle>/P0/CLEAN.md]
+  ____
 
 - What I left out:
-  [.idea/, caches, editor folders, and every file except CLEAN.md]
+  ____
 
 - Which rule made me exclude it:
-  [README rule 2; .gitignore line __]
+  ____
 
 - .gitignore lines I actually saw (copy them, do not guess):
-  [line 1: ____   line 2: ____ / none   -- unchanged this time / added line __]
+  ____
 
-- Commit type and why:
-  [docs: because this change touches documentation only]
+- Commit message format for this course:
+  submit(folder): what you did
 
-- Commit message I used:
-  [docs: add submission check note]
+- Community convention, kept as a sample (not the format for this hand-in):
+  docs: add submission check note
 
-- Unexpected entries in git status:
-  [none / list them]
+- Commit message I used (write in the course format, do not copy the sample):
+  ____
+
+- Unexpected entries in git status (none, or list them):
+  ____
 
 - Output of git diff --name-only upstream/main...HEAD (verbatim):
-  [paste it here, one line, unchanged]
+  ____
 
 - One sentence for the merge request description:
-  [which rule made me exclude what]
+  ____
 ------------------------------------------------------------
 
-[3] Also paste into the merge request description
+3. Also paste into the merge request description
     - the diff output above, verbatim
     - the one sentence above
 
-[4] NOT in this PR
-    .gitignore   <- already committed in the last merge; only checked now
+4. NOT in this PR
+    .gitignore        <- already committed in the last merge; only checked now
     .idea/  .vscode/  caches, generated files, editor folders
     anything outside submits/<handle>/
 ============================================================
 ```
 
 > **交什么，照着填 — 中文模板**
-> 整段复制进 `CLEAN.md`，把每个 `[ ]` 换成自己的答案。
+> 整段复制进本次要交的文件。每条横线是填空处，直接把答案写在横线上，**不要留中括号**，以后回头读更清楚。
 
 ```text
 === 本次要交的东西 ==========================================
 
-[1] 合并请求里只允许出现的路径（干净结果只有这一行）
+1. 合并请求里只允许出现的路径
     submits/<handle>/P0/CLEAN.md
+    （干净结果只有这一行）
 
-[2] CLEAN.md 的内容
+2. 本次文件的内容
     把下面两条虚线之间整段复制进文件
+    横线是填空处，文件里不要留下中括号
+    每条横线只写一行，不要中英混填
+    提交信息只写一行英文，类型和说明里都不要出现中文
+    提交信息格式：submit(提交的文件夹): 做了什么事情
+    表里那条 docs: 是真实社区写法的样例，两种都留着
+    本次按课程格式写自己的那一条
 ------------------------------------------------------------
 # 提交自检
 
 - 我改的文件：
-  [submits/<handle>/P0/CLEAN.md]
+  ____
 
 - 我排除了什么：
-  [.idea/、缓存、编辑器目录，以及 CLEAN.md 以外的任何文件]
+  ____
 
-- 排除依据：
-  [README 第 2 条；.gitignore 第 __ 行]
+- 排除依据（哪条规矩）：
+  ____
 
 - .gitignore 里实际看到的行（照抄，不要凭想象填）：
-  [第 1 行：____   第 2 行：____ / 没有   —— 这次没有改它 / 补了 __ 一行]
+  ____
 
-- 提交类型及理由：
-  [docs: 这次只改了文档]
+- 本课程的提交信息格式：
+  submit(提交的文件夹): 做了什么事情
 
-- 本次提交信息：
-  [docs: add submission check note]
+- 真实社区里的写法，留作样例（不是这次要交的格式）：
+  docs: add submission check note
 
-- git status 里不是我写的条目：
-  [无 / 写具体名字]
+- 本次提交信息（按课程格式写自己的，不要照抄样例）：
+  ____
+
+- git status 里不是我写的条目（无，或写具体名字）：
+  ____
 
 - git diff --name-only upstream/main...HEAD 的输出（原样）：
-  [把输出贴在这一行，一行，不要改]
+  ____
 
 - 我按哪条规矩排除了什么（贴进合并请求描述）：
-  [一句话]
+  ____
 ------------------------------------------------------------
 
-[3] 合并请求描述里另外要贴
+3. 合并请求描述里另外要贴
     · 上面 diff 那一项的输出，原样
     · 上面「我按哪条规矩排除了什么」那一句话
 
-[4] 这次明确不交
+4. 这次明确不交
     .gitignore        ← 上一次合并已进仓库，这次只核对
     .idea/  .vscode/  缓存、生成物、编辑器目录
     submits/<handle>/ 以外的任何文件

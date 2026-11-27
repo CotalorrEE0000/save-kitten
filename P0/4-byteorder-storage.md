@@ -178,66 +178,79 @@
 >
 > **记住一句**：写完六句，和别人照着它算得出同一串字节，是两件事。本讲到「把决定写进 SPEC」为止。
 
+> **Before you hand in.** Two conventions live side by side from here on. This course writes the commit message as `submit(folder): what you did`, so every hand-in can be found by the folder it lives in. Real projects write it the other way: a short lowercase type, a colon, a short description — `docs: add save file spec` — and the type is one of the six from lesson 3. The two rules that survive in both: **one merge request carries one task**, and **the merge request description says which rule made you exclude what**. Both templates below keep one `docs:` line as a sample of the community convention; it is not the format for this hand-in. Know both — one hands work in here, the other is how you will talk to people in a real repository.
+>
+> **交之前，先说清两条并存的写法。** 本课程的提交信息写成 `submit(提交的文件夹): 做了什么事情`，这样每份作业都能按文件夹找到人。真实项目里是另一套：一个英文小写的类型、冒号、一句简短说明——`docs: add save file spec`——类型就是第 3 讲那六类里挑一个。两种写法共享同两条规矩：**一个合并请求只装一件事**，**合并请求描述里写清你按哪条规矩排除了什么**。下面两份表单各留了一条 `docs:` 样例，那是社区写法，**不是这次要交的格式**。两种都要认得：一种在课堂里交作业，一种在真实仓库里跟人协作。
+
 > **Hand-in checklist — English template / 英文模板**
-> Copy the whole block into `SPEC.md` and replace every `[ ]`.
+> Copy the whole block into `SPEC.md`. Each answer blank is a bare underline, with no square brackets: write over it and leave none behind, so the file stays easy to read when you come back to it.
 
 ```text
 === WHAT TO HAND IN ===========================================
 
-[1] The only path allowed in this merge request
+1. The only path allowed in this merge request
     submits/<handle>/P0/SPEC.md
 
-[2] Content of SPEC.md
+2. Content of the hand-in file
     Copy everything between the two dashed lines into the file.
+    The underlines are blanks; no square brackets go into the file.
+    Answer in English only, one line per blank. No Chinese, no brackets.
+    Commit format here: submit(folder): what you did — one line, English.
+    The docs: line below shows the real-community convention; both are kept.
+    Write your own in the course format.
 ------------------------------------------------------------
 # Save File SPEC
 
 - Q1 format marker:
-  [____]
+  ____
 
 - Q2 byte order for multi-byte integers:
-  [____]
+  ____
 
 - Q3 string encoding:
-  [____]
+  ____
 
 - Q4 length field width, and why:
-  [____]
+  ____
 
-- Q5 version field position and higher-version behaviour:
-  [____]
+- Q5 version field position, and what happens on a higher version:
+  ____
 
 - Q6 byte combinations that must be rejected:
-  [____]
+  ____
 
 - Three cases, worked out by hand (bytes, not code):
-  [empty save: ____]
-  [slot 1 / chapter 3 / timestamp 0x01020304 / name Kt: ____]
-  [300 a's: ____]
+  - empty save:
+    ____
+  - slot 1 / chapter 3 / timestamp 0x01020304 / name Kt:
+    ____
+  - 300 a's:
+    ____
 
 - Output of the two verification commands (verbatim):
-  [____]
+  ____
 
-- Commit type and why:
-  [docs: because this change touches documentation only]
+- Commit message format for this course:
+  submit(folder): what you did
 
-- Commit message I used:
-  [docs: add save file spec]
+- Community convention, kept as a sample (not the format for this hand-in):
+  docs: add save file spec
 
-- Unexpected entries in git status:
-  [none / list them]
+- Commit message I used (write in the course format, do not copy the sample):
+  ____
 
+- Unexpected entries in git status (none, or list them):
+  ____
 
 - One sentence for the merge request description:
-  [which rule made me exclude what]
+  ____
 ------------------------------------------------------------
 
-[3] Also paste into the merge request description
-    - the diff output above, verbatim
+3. Also paste into the merge request description
     - the one sentence above
 
-[4] NOT in this PR
-    .gitignore        <- already committed in the last merge; only checked now
+4. NOT in this PR
+    .gitignore        <- already committed in an earlier merge; only checked now
     .idea/  .vscode/  caches, generated files, editor folders
     sample save files, or any bytes produced by a program
     anything outside submits/<handle>/
@@ -245,65 +258,76 @@
 ```
 
 > **交什么，照着填 — 中文模板**
-> 整段复制进 `SPEC.md`，把每个 `[ ]` 换成自己的答案。
+> 整段复制进 `SPEC.md`。每条横线是填空处，直接把答案写在横线上，**不要留中括号**，以后回头读更清楚。
 
 ```text
 === 本次要交的东西 ==========================================
 
-[1] 合并请求里只允许出现的路径（干净结果只有这一行）
+1. 合并请求里只允许出现的路径
     submits/<handle>/P0/SPEC.md
+    （任务发布若指定了别的名字，只换名字）
 
-[2] SPEC.md 的内容
+2. 本次文件的内容
     把下面两条虚线之间整段复制进文件
+    横线是填空处，文件里不要留下中括号
+    每条横线只写一行，不要中英混填
+    提交信息只写一行英文，类型和说明里都不要出现中文
+    提交信息格式：submit(提交的文件夹): 做了什么事情
+    表里那条 docs: 是真实社区写法的样例，两种都留着
+    本次按课程格式写自己的那一条
 ------------------------------------------------------------
 # 存档格式 SPEC
 
 - Q1 格式标识：
-  [____]
+  ____
 
 - Q2 多字节整数的字节序：
-  [____]
+  ____
 
 - Q3 字符串编码：
-  [____]
+  ____
 
 - Q4 长度字段几个字节，以及理由：
-  [____]
+  ____
 
 - Q5 版本字段放哪、读到更高版本怎么办：
-  [____]
+  ____
 
 - Q6 哪些字节组合必须拒绝：
-  [____]
+  ____
 
 - 三组样例，手算写出字节（不是写程序生成）：
-  [空存档：____]
-  [槽位 1 / 章节 3 / 时间戳 0x01020304 / 名字 Kt：____]
-  [300 个 a：____]
+  - 空存档：
+    ____
+  - 槽位 1 / 章节 3 / 时间戳 0x01020304 / 名字 Kt：
+    ____
+  - 300 个 a：
+    ____
 
 - 两条验证命令的输出（原样）：
-  [____]
+  ____
 
-- 提交类型及理由：
-  [docs: 这次只改了文档]
+- 本课程的提交信息格式：
+  submit(提交的文件夹): 做了什么事情
 
-- 本次提交信息：
-  [docs: add save file spec]
+- 真实社区里的写法，留作样例（不是这次要交的格式）：
+  docs: add save file spec
 
-- git status 里不是我写的条目：
-  [无 / 写具体名字]
+- 本次提交信息（按课程格式写自己的，不要照抄样例）：
+  ____
 
+- git status 里不是我写的条目（无，或写具体名字）：
+  ____
 
 - 我按哪条规矩排除了什么（贴进合并请求描述）：
-  [一句话]
+  ____
 ------------------------------------------------------------
 
-[3] 合并请求描述里另外要贴
-    · 上面 diff 那一项的输出，原样
+3. 合并请求描述里另外要贴
     · 上面「我按哪条规矩排除了什么」那一句话
 
-[4] 这次明确不交
-    .gitignore        ← 上一次合并已进仓库，这次只核对
+4. 这次明确不交
+    .gitignore        ← 更早的合并里已进仓库，这次只核对
     .idea/  .vscode/  缓存、生成物、编辑器目录
     样例存档文件，以及任何由程序生成出来的字节
     submits/<handle>/ 以外的任何文件

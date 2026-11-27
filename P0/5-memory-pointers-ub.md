@@ -231,7 +231,8 @@
 2. Content of the hand-in file
     Copy everything between the two dashed lines into the file.
     The underlines are blanks; no square brackets go into the file.
-    Commit format here: submit(folder): what you did.
+    Answer in English only, one line per blank. No Chinese, no brackets.
+    Commit format here: submit(folder): what you did — one line, English.
     The feat: line below shows the real-community convention; both are kept.
     Write your own in the course format.
 ------------------------------------------------------------
@@ -298,6 +299,8 @@
 2. 本次文件的内容
     把下面两条虚线之间整段复制进文件
     横线是填空处，文件里不要留下中括号
+    每条横线只写一行，不要中英混填
+    提交信息只写一行英文，类型和说明里都不要出现中文
     提交信息格式：submit(提交的文件夹): 做了什么事情
     表里那条 feat: 是真实社区写法的样例，两种都留着
     本次按课程格式写自己的那一条

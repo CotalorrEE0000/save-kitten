@@ -158,7 +158,7 @@
 
 ## 6. Your First Contribution: The Practice Folder
 
-> All the lessons in this course live in one repository. To let everyone practice without touching the lesson files, there is a dedicated folder for student submissions, in the same spirit as GitHub's own `first-contributions` project. Open that folder, read the practice notes inside, and complete your very first contribution by applying everything from this chapter. In this guide the folder is written as `*1xxxxx`; replace it with the real folder name used in your course repository.
+> All the lessons in this course live in one repository. To let everyone practice without touching the lesson files, there is a dedicated folder for student submissions, in the same spirit as GitHub's own `first-contributions` project. Open that folder, read the practice notes inside, and complete your very first contribution by applying everything from this chapter. Your own space inside it is `submits/<your-handle>/P0`, and the file you add is `first-contribution.md`.
 >
 >
 > ```bash
@@ -173,13 +173,134 @@
 > git checkout -b my-first-contribution
 >
 > # 4. add your own file inside the practice folder, then commit
-> cd <practice-folder>        # the folder referenced as *1xxxxx
-> # create your-name.md here and write a short text inside it
-> git add your-name.md
-> git commit -m "docs: add first writing contribution by Your Name"
+> cd submits/<your-handle>/P0
+> # create first-contribution.md here and write a short text inside it
+> git add first-contribution.md
+> git commit -m "submit(P0): first contribution"
+> # the same change in a real project would read:
+> #   docs: add first writing contribution by Your Name
 >
 > # 5. push your branch and open a Pull Request from it
 > git push origin my-first-contribution
 > ```
 
-> 本课程的所有讲义都放在同一个仓库里。为了让大家安全地练习而不去改动讲义本身，仓库中专门有一个存放学生提交的目录，思路和 GitHub 官方的 `first-contributions` 项目一样。请打开那个目录，阅读里面的实践说明，然后用本章学到的全部内容完成你的第一次贡献。本指南中该目录记作 `*1xxxxx`，请把它替换为你所在课程仓库里实际使用的目录名。
+> 本课程的所有讲义都放在同一个仓库里。为了让大家安全地练习而不去改动讲义本身，仓库中专门有一个存放学生提交的目录，思路和 GitHub 官方的 `first-contributions` 项目一样。请打开那个目录，阅读里面的实践说明，然后用本章学到的全部内容完成你的第一次贡献。你在里面的位置是 `submits/<你的 handle>/P0`，要加的文件是 `first-contribution.md`。
+>
+> 上面第 4 步那条提交信息按课程格式写成了 `submit(P0): first contribution`——这是交作业的写法，能按文件夹找到人。同样的改动放在真实社区里会写成 `docs: add first writing contribution by Your Name`，那是社区惯例，两种都认得。
+
+---
+
+> **Before you hand in.** The first contribution is two exercises in one: the community flow (fork, branch, commit, pull request) and the hand-in form this course uses. The commit message here follows the course format, `submit(folder): what you did`, so the hand-in can be found by folder; the `docs:` form you practised above is the real-community convention and stays as a sample. The same two rules that hold for every hand-in hold here: **one merge request carries one task**, and **the description says which rule made you exclude what**.
+
+> **交之前。** 第一次贡献其实是两个练习叠在一起：社区流程（fork、分支、提交、合并请求），和这门课收作业的形式。这里的提交信息按课程格式写 `submit(提交的文件夹): 做了什么事情`，这样作业能按文件夹找到人；上面练过的 `docs:` 写法是真实社区的那一套，留作样例。每次交作业都成立的两条规矩，这次也成立：**一个合并请求只装一件事**，**描述里写清你按哪条规矩排除了什么**。
+
+> **Hand-in checklist — English template / 英文模板**
+> Copy the whole block into the hand-in file. Each answer blank is a bare underline, with no square brackets: write over it and leave none behind, so the file stays easy to read when you come back to it.
+
+```text
+=== WHAT TO HAND IN ===========================================
+
+1. The only path allowed in this merge request
+    submits/<handle>/P0/first-contribution.md
+
+2. Content of the hand-in file
+    Copy everything between the two dashed lines into the file.
+    The underlines are blanks; no square brackets go into the file.
+    Answer in English only, one line per blank. No Chinese, no brackets.
+    Commit format here: submit(folder): what you did — one line, English.
+    The docs: line below shows the real-community convention; both are kept.
+    Write your own in the course format.
+------------------------------------------------------------
+# First Contribution
+
+- My handle, as it appears in my folder name:
+  ____
+
+- Commands I actually ran, in order (clone, remote add, checkout -b, add, commit, push):
+  ____
+
+- Which remote is upstream, and how I checked it:
+  ____
+
+- Commit message format for this course:
+  submit(folder): what you did
+
+- Community convention, kept as a sample (not the format for this hand-in):
+  docs: add first writing contribution by Your Name
+
+- Commit message I used (course format, one line, English):
+  ____
+
+- The pull request title, and the one sentence in its description:
+  ____
+
+- Unexpected entries in git status (none, or list them):
+  ____
+------------------------------------------------------------
+
+3. Also paste into the merge request description
+    - the one sentence explaining which rule made me exclude what
+
+4. NOT in this PR
+    .gitignore        <- not part of this submission; leave it alone
+    .idea/  .vscode/  caches, editor folders
+    anyone else's folder under submits/
+    anything outside submits/<handle>/
+============================================================
+```
+
+> **交什么，照着填 — 中文模板**
+> 整段复制进本次要交的文件。每条横线是填空处，直接把答案写在横线上，**不要留中括号**，以后回头读更清楚。
+
+```text
+=== 本次要交的东西 ==========================================
+
+1. 合并请求里只允许出现的路径
+    submits/<handle>/P0/first-contribution.md
+
+2. 本次文件的内容
+    把下面两条虚线之间整段复制进文件
+    横线是填空处，文件里不要留下中括号
+    每条横线只写一行，不要中英混填
+    提交信息只写一行英文，类型和说明里都不要出现中文
+    提交信息格式：submit(提交的文件夹): 做了什么事情
+    表里那条 docs: 是真实社区写法的样例，两种都留着
+    本次按课程格式写自己的那一条
+------------------------------------------------------------
+# 第一次贡献
+
+- 我的 handle（和文件夹名一致）：
+  ____
+
+- 我实际跑过的命令，按顺序（clone、remote add、checkout -b、add、commit、push）：
+  ____
+
+- upstream 指向哪个远程，我怎么核对的：
+  ____
+
+- 本课程的提交信息格式：
+  submit(提交的文件夹): 做了什么事情
+
+- 真实社区里的写法，留作样例（不是这次要交的格式）：
+  docs: add first writing contribution by Your Name
+
+- 本次提交信息（课程格式，一行英文）：
+  ____
+
+- 合并请求标题，以及描述里那一句话：
+  ____
+
+- git status 里不是我写的条目（无，或写具体名字）：
+  ____
+------------------------------------------------------------
+
+3. 合并请求描述里另外要贴
+    · 上面「我按哪条规矩排除了什么」那一句话
+
+4. 这次明确不交
+    .gitignore        ← 不属于本次提交，不要动它
+    .idea/  .vscode/  缓存、编辑器目录
+    submits/ 下别人的文件夹
+    submits/<handle>/ 以外的任何文件
+============================================================
+```

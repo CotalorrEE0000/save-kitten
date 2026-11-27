@@ -190,38 +190,152 @@ See you there.
 
 ---
 
-## Hand-in template (English)
+## Hand-in template
+
+**Before you hand in.** Two conventions live side by side. This course writes the commit message as `submit(folder): what you did`, so every hand-in can be found by the folder it lives in. Real projects write it the other way: a short lowercase type, a colon, a short description — `docs: add Linux and toolchain check` — and the type is one of the six from lesson 3. Two rules hold here too: **one merge request carries one task**, and **the description says which rule made you exclude what**. Both templates keep one `docs:` line as a sample of the community convention; it is not the format for this hand-in.
+
+> **交之前。** 两种写法并存。本课程的提交信息写成 `submit(提交的文件夹): 做了什么事情`，这样每份作业都能按文件夹找到人。真实项目里是另一套：英文小写类型、冒号、一句简短说明——`docs: add Linux and toolchain check`——类型从第 3 讲那六类里挑。两条规矩在这里同样成立：**一个合并请求只装一件事**，**描述里写清你按哪条规矩排除了什么**。下面两份表单各留一条 `docs:` 样例，那是社区写法，**不是这次要交的格式**。
 
 ```text
-# Linux and toolchain — self check
+=== WHAT TO HAND IN ===========================================
+
+1. The only path allowed in this merge request
+    submits/<handle>/P0/LINUX.md
+
+2. Content of the hand-in file
+    Copy everything between the two dashed lines into the file.
+    The underlines are blanks; no square brackets go into the file.
+    Answer in English only, one line per blank. No Chinese, no brackets.
+    Commit format here: submit(folder): what you did — one line, English.
+    The docs: line below shows the real-community convention; both are kept.
+    Write your own in the course format.
+------------------------------------------------------------
+# Linux and Toolchain Check
 
 - Kernel vs distribution, in one sentence, plus two distribution names:
-- One `ls -l` line I read out loud, and what each column means:
-- One `chmod` number, and who may do what as a result:
+  ____
+
+- One ls -l line I read out loud, and what each column means:
+  ____
+
+- One chmod number, and who may do what as a result:
+  ____
+
 - The pipe / redirect / short-circuit idiom, written in PowerShell, cmd.exe, and a POSIX shell:
-- What `pip` installs where on Windows, and what a venv is for:
-- One error I met that was "command not found", and one that was "Permission denied", with which layer said each:
+  ____
+
+- What pip installs where on Windows, and what a venv is for:
+  ____
+
+- One error that was "command not found", and one that was "Permission denied", with the layer for each:
+  ____
+
 - Something that behaved differently between two shells, and my explanation:
-- (Optional) Did I install WSL? If yes, the `uname -a` line; if no, why I skipped it:
+  ____
+
+- (Optional) Did I install WSL? If yes, the uname -a line; if no, why I skipped it:
+  ____
+
+- Commit message format for this course:
+  submit(folder): what you did
+
+- Community convention, kept as a sample (not the format for this hand-in):
+  docs: add Linux and toolchain check
+
+- Commit message I used (write in the course format, do not copy the sample):
+  ____
+
 - Before this page I thought ..., now I know ...:
-- Commit message (course format):
-- Entries in git status that are not mine (none, or list them):
+  ____
+
+- Unexpected entries in git status (none, or list them):
+  ____
+
+- What I excluded by which rule (paste into the merge request description):
+  ____
+------------------------------------------------------------
+
+3. Also paste into the merge request description
+    - the sentence explaining which rule made me exclude what
+
+4. NOT in this PR
+    .gitignore        <- not part of this submission; leave it alone
+    .idea/  .vscode/  caches, editor folders
+    compiled binaries, test output, anything a program produced
+    anything outside submits/<handle>/
+============================================================
 ```
 
-## 提交模板（中文）
+> **交什么，照着填 — 中文模板**
+> 整段复制进本次要交的文件。每条横线是填空处，直接把答案写在横线上，**不要留中括号**，以后回头读更清楚。
 
 ```text
+=== 本次要交的东西 ==========================================
+
+1. 合并请求里只允许出现的路径
+    submits/<handle>/P0/LINUX.md
+
+2. 本次文件的内容
+    把下面两条虚线之间整段复制进文件
+    横线是填空处，文件里不要留下中括号
+    每条横线只写一行，不要中英混填
+    提交信息只写一行英文，类型和说明里都不要出现中文
+    提交信息格式：submit(提交的文件夹): 做了什么事情
+    表里那条 docs: 是真实社区写法的样例，两种都留着
+    本次按课程格式写自己的那一条
+------------------------------------------------------------
 # Linux 与工具链自检
 
 - 内核和发行版的区别（一句话），加两个发行版名字：
-- 我读出的一条 `ls -l`，以及每一列是什么意思：
-- 一个 `chmod` 数字，以及它带来「谁可以做什么」：
-- 管道/重定向/短路那句，分别用 PowerShell、cmd.exe、POSIX 壳写一遍：
-- `pip` 在 Windows 上装到哪，venv 是干嘛的：
-- 一个我遇到的 "command not found"，一个 "Permission denied"，各自是哪一层在说：
+  ____
+
+- 我读出的一条 ls -l，以及每一列是什么意思：
+  ____
+
+- 一个 chmod 数字，以及它带来「谁可以做什么」：
+  ____
+
+- 管道 / 重定向 / 短路那句，分别用 PowerShell、cmd.exe、POSIX 壳写一遍：
+  ____
+
+- pip 在 Windows 上装到哪，venv 是干嘛的：
+  ____
+
+- 一个 "command not found"，一个 "Permission denied"，各自是哪一层在说：
+  ____
+
 - 一件事在两个壳之间表现不同，以及我的解释：
-- （可选）我装 WSL 了吗？装了贴 `uname -a`；没装写为什么跳过：
+  ____
+
+- （可选）我装 WSL 了吗？装了贴 uname -a；没装写为什么跳过：
+  ____
+
+- 本课程的提交信息格式：
+  submit(提交的文件夹): 做了什么事情
+
+- 真实社区里的写法，留作样例（不是这次要交的格式）：
+  docs: add Linux and toolchain check
+
+- 本次提交信息（按课程格式写自己的，不要照抄样例）：
+  ____
+
 - 这一页之前我以为……，现在我知道……：
-- 本次提交信息（课程格式）：
+  ____
+
 - git status 里不是我写的条目（无，或写具体名字）：
+  ____
+
+- 我按哪条规矩排除了什么（贴进合并请求描述）：
+  ____
+------------------------------------------------------------
+
+3. 合并请求描述里另外要贴
+    · 上面「我按哪条规矩排除了什么」那一句话
+
+4. 这次明确不交
+    .gitignore        ← 不属于本次提交，不要动它
+    .idea/  .vscode/  缓存、编辑器目录
+    编译产物、测试输出、任何由程序生成出来的东西
+    submits/<handle>/ 以外的任何文件
+============================================================
 ```
