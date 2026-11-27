@@ -12,6 +12,13 @@ save-kitten/
 │   │                                        → submits/<handle>/P0/first-contribution.md
 │   ├── 3-clean-submission.md                什么样的改动可以被 review
 │   │                                        → submits/<handle>/P0/CLEAN.md
+│   ├── 3-x1-computing-systems.md            计算机怎么走到今天：逻辑门、Unix、各系统家族（不交作业）
+│   ├── 3-x2-circuits-to-devices.md          从一颗管子到一个可寻址的设备（不交作业）
+│   ├── 3-x3-shell-and-path.md               窗口、壳、PATH，以及你自己的一个命令
+│   │                                        → submits/<handle>/P0/SHELL.md
+│   ├── 3-x4-linux-and-toolchain.md          内核 vs 发行版、POSIX、权限、包管理（WSL 可选）
+│   │                                        → submits/<handle>/P0/LINUX.md
+│   ├── 3-x5-c-and-assembly.md               一条 C 语句变成了什么（不交作业）
 │   ├── 4-byteorder-storage.md               一份存档规范的六句话
 │   │                                        → submits/<handle>/P0/SPEC.md
 │   ├── 5-memory-pointers-ub.md              内存、指针、未定义行为

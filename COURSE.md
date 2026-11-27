@@ -12,6 +12,13 @@ save-kitten/
 │   │                                        → submits/<handle>/P0/first-contribution.md
 │   ├── 3-clean-submission.md                what a reviewable change looks like
 │   │                                        → submits/<handle>/P0/CLEAN.md
+│   ├── 3-x1-computing-systems.md            how computers got here: gates, Unix, the OS families (no hand-in)
+│   ├── 3-x2-circuits-to-devices.md          from a transistor to an addressable device (no hand-in)
+│   ├── 3-x3-shell-and-path.md               the window, the shell, PATH, and your own command
+│   │                                        → submits/<handle>/P0/SHELL.md
+│   ├── 3-x4-linux-and-toolchain.md          kernel vs distro, POSIX, permissions, packages (WSL optional)
+│   │                                        → submits/<handle>/P0/LINUX.md
+│   ├── 3-x5-c-and-assembly.md               what one C statement becomes (no hand-in)
 │   ├── 4-byteorder-storage.md               the six sentences of a save spec
 │   │                                        → submits/<handle>/P0/SPEC.md
 │   ├── 5-memory-pointers-ub.md              memory, pointers, undefined behaviour
