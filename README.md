@@ -3,13 +3,13 @@
 [![stage: P0 in progress](https://img.shields.io/badge/stage-P0%20in%20progress-yellow)](#roadmap)
 [![engine: Rust](https://img.shields.io/badge/engine-Rust-orange)](#t-shaped-skill-map)
 [![lessons: P0-P4](https://img.shields.io/badge/lessons-P0--P4-blue)](#roadmap)
-[![PRs: welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
+[![PRs: welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTORS.md)
 [![license: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 ![star](https://atomgit.com/klions/save-kitten/star/badge.svg)
 
-English · [简体中文](README.zh.md) · Contributing
+English · [简体中文](README.zh.md) · [Course map](COURSE.md) · Contributing
 
-**A game-engine engineering course you actually submit homework to.** Lectures live in `P0/` … `P4/`; everything else (`Algo/`, `scripts/`, `.gitcode/`) is course support material. coursework goes in `submits/<handle>/`.
+**A game-engine engineering course you actually submit homework to.** Lectures live in `P0/` … `P4/`; the [course map](COURSE.md) has the detailed plan for all five stages; your coursework goes in `submits/<handle>/`.
 The loop: `read → build → open a PR → get reviewed → turn the feedback into a principle`.
 
 ---
@@ -94,7 +94,7 @@ Every task pack includes one fixed exercise: **read existing engine code → wri
 
 | Term | One-line explanation |
 |:---|:---|
-| PR / merge request | Submit your changes to the main repo and wait for review before merge |
+| PR / 合并请求 (MR) | The same operation, two platform names: GitHub calls it a pull request (`#12`), AtomGit calls it a merge request (`!12`). Submit your changes to the main repo and wait for review before merge |
 | upstream | The course's main repository; sync from it before you start |
 | UB (undefined behavior) | The standard defines no result; code may "improvise" |
 | fuzz | Coverage-guided input mutation that forces boundary crashes |

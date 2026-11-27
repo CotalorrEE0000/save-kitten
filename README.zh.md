@@ -3,13 +3,13 @@
 [![stage: P0 in progress](https://img.shields.io/badge/stage-P0%20in%20progress-yellow)](#路线图)
 [![engine: Rust](https://img.shields.io/badge/engine-Rust-orange)](#t-型技能地图)
 [![lessons: P0-P4](https://img.shields.io/badge/lessons-P0--P4-blue)](#路线图)
-[![PRs: welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
+[![PRs: welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTORS.md)
 [![license: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 ![star](https://atomgit.com/klions/save-kitten/star/badge.svg)
 
-简体中文 · [English](README.md) · 贡献指南
+简体中文 · [English](README.md) · [课程结构](COURSE.zh.md) · 贡献指南
 
-**一门可以交作业的游戏引擎工程课** — 讲义在 `P0/` … `P4/`，其余为支线和拓展，作业交在 `submits/<handle>/`。
+**一门可以交作业的游戏引擎工程课** — 讲义在 `P0/` … `P4/`，五个阶段的详细课程规划见[课程结构](COURSE.zh.md)，作业交在 `submits/<handle>/`。
 闭环：`读讲义 → 动手做 → 发 PR → 被 review → 把意见抽象成原则`。
 
 ---
@@ -95,7 +95,7 @@ git fetch upstream && git merge upstream/main   # 每次动手前
 
 | 术语 | 一句话解释 |
 |:---|:---|
-| PR / 合并请求 | 把改动提交给主仓库，等检查通过后合入 |
+| PR / 合并请求（MR） | 同一件事的两个平台叫法：GitHub 叫 pull request（`#12`），AtomGit 叫合并请求（`!12`）。把改动提交给主仓库，等检查通过后合入 |
 | upstream | 本课程的「上游」主仓库，动手前先同步 |
 | UB（未定义行为） | 标准没规定结果，代码可能「随机发挥」 |
 | fuzz | 覆盖率引导的变异输入测试，逼出边界崩溃 |
