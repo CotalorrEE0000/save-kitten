@@ -139,13 +139,17 @@
 > - You can look at `git status` or the **Changes** page and point out which entries you wrote and which ones the computer created.
 > - You can open, write, save and re-read a `.md` file without asking anyone.
 > - You can pick the right commit type for a change and write a conventional English message.
-> - You can open one merge request that contains only one file, with a path list anyone can re-run.
+> - You can open one merge request that contains only one task — a single file, or the set of files that belong to the same piece of coursework — with a path list anyone can re-run.
 
 > - 能用自己的话说清 `git add .` 和 `git add <文件>` 的差别，以及它会顺手带进来什么。
 > - 看着 `git status` 或 GitHub Desktop 的 **Changes** 页，能指出哪些是我写的、哪些是电脑自己生成的。
 > - 能自己打开、写、保存、再读一遍一个 `.md` 文件，不用问人。
 > - 能按改动性质选对提交类型，写出全英文的规范提交信息。
-> - 能交一个只含一个文件的合并请求，并附上别人能重跑的路径清单。
+> - 能交一个只装一件事的合并请求——一份文件，或同属一次作业的一组文件——并附上别人能重跑的路径清单。
+
+> **Why one task rather than one file**: the test is not the count, it is whether the change can be sent back on its own. A merge request that carries two unrelated pieces of work — a self-check sheet and another set of exercises, say — cannot be rejected without also stopping the part that was right, and a reviewer cannot quote half of it. Five problems from one set, by contrast, are accepted or returned together by definition, so they are one task.
+>
+> **为什么是「一件事」，不是「一份文件」**：判据不是数量，是**能不能被单独退回**。一个合并请求如果同时装了两件互不相干的事——比如一份作业的自检表和另一组练习的题解——退回就等于把做对的那部分也一起停在门口，review 的人也没法只引用其中一半。反过来，五道题同属一组练习，本来就该一起收、一起退，那就是一件事。
 
 > **Keep one sentence**: submitting is not the same as proving what you submitted.
 >

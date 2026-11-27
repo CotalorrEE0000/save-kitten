@@ -159,7 +159,7 @@
 > python -c "print((256).to_bytes(2,'little').hex(' '))"
 > ```
 >
-> After this lesson you should be able to say why one byte is two hex digits and why `0x` is not in the file, point at the offset, the byte and the decoded character in an `xxd` line as three different things, keep byte order, encoding and length in three separate sentences, write six sentences someone else can implement from, and hand in a merge request with one file and a path list anyone can re-run.
+> After this lesson you should be able to say why one byte is two hex digits and why `0x` is not in the file, point at the offset, the byte and the decoded character in an `xxd` line as three different things, keep byte order, encoding and length in three separate sentences, write six sentences someone else can implement from, and hand in a merge request that carries one task — one file, or one group of files that belong together — with a path list anyone can re-run.
 >
 > **Keep one sentence**: writing down six decisions is not the same as someone else computing the same bytes from them. This lesson stops at the specification.
 
@@ -174,7 +174,7 @@
 > python -c "print((256).to_bytes(2,'little').hex(' '))"
 > ```
 >
-> 这一讲读完，你应该能说清为什么一个字节是两位十六进制、为什么 `0x` 不在文件里；看着一行 `xxd` 输出，能指出偏移、字节、解码出的字符是三件不同的东西；能把字节序、编码、长度分别写成三句话而不混在一起；能写出六句别人照着能实现的 SPEC；也能交一个只含一个文件的合并请求，附上别人能重跑的路径清单。
+> 这一讲读完，你应该能说清为什么一个字节是两位十六进制、为什么 `0x` 不在文件里；看着一行 `xxd` 输出，能指出偏移、字节、解码出的字符是三件不同的东西；能把字节序、编码、长度分别写成三句话而不混在一起；能写出六句别人照着能实现的 SPEC；也能交一个只装一件事的合并请求——一份文件，或同属一次作业的一组文件——附上别人能重跑的路径清单。
 >
 > **记住一句**：写完六句，和别人照着它算得出同一串字节，是两件事。本讲到「把决定写进 SPEC」为止。
 
